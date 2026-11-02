@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security: framework, API and cloud service | Tymex</title>
+<meta name="description" content="How the Tymex platform is built and protected: the Ground&#x27;81 framework, roles and permissions, hash-signed API, cloud service.">
+<link rel="canonical" href="https://www.tymex.it/en/security/">
+<link rel="alternate" hreflang="it" href="https://www.tymex.it/sicurezza/">
+<link rel="alternate" hreflang="en" href="https://www.tymex.it/en/security/">
+<link rel="alternate" hreflang="x-default" href="https://www.tymex.it/sicurezza/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tymex">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Security: framework, API and cloud service | Tymex">
+<meta property="og:description" content="How the Tymex platform is built and protected: the Ground&#x27;81 framework, roles and permissions, hash-signed API, cloud service.">
+<meta property="og:url" content="https://www.tymex.it/en/security/">
+<meta property="og:image" content="https://www.tymex.it/img/og-tymex.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#4654A3">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=43240bde8c">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.tymex.it/#org", "name": "Servizi Informatici Srl", "url": "https://www.serviziparma.com", "logo": "https://www.tymex.it/img/tymex-logo.png", "email": "info@tymex.it", "telephone": "+39 0521 252824", "vatID": "IT01721620340", "address": {"@type": "PostalAddress", "streetAddress": "Via Sicuri 42/a", "postalCode": "43124", "addressLocality": "Parma", "addressRegion": "PR", "addressCountry": "IT"}, "sameAs": ["https://www.linkedin.com/showcase/79054773"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.tymex.it/en/"}, {"@type": "ListItem", "position": 2, "name": "Security", "item": "https://www.tymex.it/en/security/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/en/"><img src="/img/tymex-logo.png" width="720" height="173" alt="Tymex – Rilevazione ore"></a>
+    <nav class="nav" aria-label="Main menu"><a href="/en/#features">Features</a><a href="/en/#industries">Industries</a><a href="/en/#integrations">Integrations</a><a href="/en/faq/">FAQ</a><a href="/en/support/">Support</a><a href="/en/#contact">Contact</a></nav>
+    <div class="header-actions">
+      <a class="lang" href="/sicurezza/" hreflang="it" lang="it" aria-label="Versione italiana">IT</a>
+      <a class="login" href="https://web.tymex.it">Log in</a>
+      <a class="btn btn--primary" href="/en/#contact">Book a demo</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-open="Open menu" data-close="Close menu"><svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <nav aria-label="Mobile menu"><a href="/en/#features">Features</a><a href="/en/#industries">Industries</a><a href="/en/#integrations">Integrations</a><a href="/en/faq/">FAQ</a><a href="/en/support/">Support</a><a href="/en/#contact">Contact</a><a href="https://web.tymex.it">Log in</a><a class="btn btn--primary" href="/en/#contact">Book a demo</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/en/">Home</a></li><li aria-current="page">Security</li></ol></nav>
+<h1><span class="kw intro" style="--d:0">Security</span><span class="intro" style="--d:1;display:block">Tymex platform security</span></h1></div></section><section class="section" style="padding-top:24px"><div class="wrap"><div class="prose legal"><h2>What is Ground&#x27;81</h2>
+<p>Ground&#x27;81 is a framework developed by Web&#x27;81 specifically for hosting web applications. Its current version (the third) stands out for its high performance and limited bandwidth consumption. Thanks to Ajax technology, style sheets and javascript libraries are loaded only once per session, while allowing the user to load almost snapshot of the requested section. The framework offers a range of common and necessary functions for most systems, &quot;by itself&quot; it does not perform any type of operation, but acts as a manager of modules created ad hoc, for which it simplifies and organizes the work. Having to develop a customized solution, it is preferable to rely on a framework both in terms of efficiency in the development phase and for maintenance programs that allow applications to be kept updated over time with new features. As far as user profiling is concerned, the framework allows you to associate it with two characteristics: membership structure and pertinence role. The structure indicates a set of users who deal with a given number of &quot;information&quot;, generally coincides with the offices or branches of a company. Each structure has its own independent range of users and may have underlying structures (substructures), which in turn will have their own users and possibly substructures.</p>
+<p>The tree structure that is formed becomes important not only for organizational purposes, but also for the functional one. In fact, every user, regardless of the structure he belongs to, has a role. Roles allow you to simplify the control of permissions, since they allow both to specify to which functions, and to which data level they can access the various users. The functions depend on the system that will be implemented and indicate the individual operations that can be performed by an operator, for example in a document management module we will have the following functions: View Document, Add Document, Edit Document and Delete Document. We will match each role with permissions and functions which will then be attributed to users who play that specific role. Instead, data control takes place by cross-referencing the user and the structure to which they belong, maintaining the parental degree between the structures. In practice, access to data is divided into four levels:</p>
+<ul><li>Own data: I only view the data assigned to me.</li><li>Own Structure: Access to all assigned data and to all those assigned to users of own structure.</li><li>Own Structure and Underlying Structures: Access to all assigned data, to all data assigned to users of your own structure or underlying structures.</li><li>Complete view: Complete access to any data, regardless of its location and to the belonging of the data. Returning to the example of the document management module, this classification will allow a user to access only his own documents, those of his colleagues, rather than to those of the controlled branch.</li></ul>
+<p>Among the most popular standard modules:</p>
+<ul><li>Authentication: user management module, with related permission management and access tracking.</li><li>Power Forms: a set of tools to implement the standard features of the forms.</li><li>Messages: a communication system similar to emails that allows you to send messages to a single user, a group or one or more structures</li><li>Comunication: user-user asynchronous communication system that develops on the basis of dialogues and graphically recalls the display of SMS on modern smartphones.</li><li>Live Chat: real-time communication with other users connected to the system. Doesn&#x27;t work offline.</li><li>Sidebar: a retractable bar that can be configured to contain information of various types.</li><li>Documentor: a small document manager, which allows you to share files with groups of users (identified by role and by belonging structure).</li><li>Notify: notification management system. Notify works by showing a timed box in the upper right corner of the browser. In addition, it integrates a polling between client and server allowing to perform checks also on client events.</li><li>Babel: module for multilingual management of the entire system.</li></ul>
+<h2>Integration with external libraries</h2>
+<ul><li>DataTables: for managing tabular data</li><li>Highcharts: for on-demand generation of graphs without the use of Flash or Silverlight</li><li>TCPdf: for generating PDF documents</li><li>PHPMailer: for sending emails (even massive ones)</li><li>Google Maps: integration with services.</li></ul>
+<h2>API Connect</h2>
+<p>Api Connect is a module integrated with the Ground &#x27;81 framework that allows data exchange with the platform and the outside world via REST API communication. The web service allows simple HTTP calls through which it is possible to send data insertion or reading instructions, or even simply to perform server-side operations. The data is communicated in JSON format. Authentication Authentication takes place through the recognition of 2 codes (user and password). The system generates a token that remains valid until it expires, or until one of the parties requests the generation of a new key or until it is revoked by the administrator. Based on the customer&#x27;s request, the system can accept calls from any address or only those that come from a list of servers contained in a &quot;white list&quot; of IPs. Hashing protocol In order to guarantee a high level of safety, but above all to be sure that there have been no anomalies during the data transmission, a hash algorithm is used based on a key known by both parties, but not shared in the communication. The best way to explain how it works is to give an example. Let&#x27;s imagine that Alice wants to declare her love to Bob, to do this she decides to send a message to Bob by post. So far so good, but James, Alice&#x27;s ex-boyfriend, is not happy about it and decides to play a trick on his old flame. James pretends to be Bob by tricking the postman, intercepts Alice&#x27;s message, changes it and then forwards it to poor Bob.</p>
+<p>Bob has no way of spotting the scam because he has no means of determining whether the message he received really came from Alice. The solution to the problem comes through the cryptographic hash functions. In essence, these functions are able to return a &quot;signature&quot; of a particular content, the peculiarity that interests us is that if the content changes by even just a single character, the returned signature is different. It is not possible to trace the content from the signature, but we are sure that two contents with the same signature are certainly the same. Let&#x27;s go back to Bob and Alice. There is one thing that only the two of them know: the name of the song that played at the party where they first met, &quot;Purple Rain&quot;.</p>
+<p>Alice then takes her message, adds the name of the song (the &quot;secret&quot;) and passes it through a hash algorithm, generating a &quot;signature&quot;. He then takes the original message, attaches the obtained signature and sends it to Bob. Bob, once he gets the message, retrieves the content and temporarily puts aside the received signature. Then he performs the same signing procedure performed by Alice, using their shared secret “Purple Rain” and checks if the signature he obtained coincides with the one received. The signatures match and Bob is sure that the message received was really written by Alice. But are we really sure this time? What if James tries to change the message again? This time, although James knows perfectly well the procedure for signing agreed between Alice and Bob, he does not know their secret, and since it is not sent by post (the famous unsafe channel) he has no way of obtaining it. In practice, James could try to change the text without changing the signature, but the hash function would notice the change and generate a different signature. Bob would then have a message with a different signature than the one verified by him and would immediately know that the message is not “genuine”.</p>
+<p>The example, however playful it may be, perfectly conveys the idea of both the functioning and the importance of this device.</p>
+<h2>Hash calculation</h2>
+<p>In our case, the hash calculation is performed simply by applying the SHA1 algorithm to the string obtained by appending the &quot;secret key&quot; (the one that was &quot;Purple Rain&quot; in the example) to the transmitted &quot;data&quot; field.</p>
+<h2>Cloud service</h2>
+<p>The program is provided as a cloud service accessible via a web platform. Its consultation will be possible via any device (fixed or mobile) equipped with web access and a browser compatible with the recent HMTL standards. Each user has access through a personal account. The licensing system only considers active accounts, it is therefore possible to disable obsolete users while keeping their data. The data will be kept for the duration of the service, an export with an hourly rate may be requested upon termination. In addition to access to the software system, the fee includes:</p>
+<ul><li>VM HA with mirroring operation</li><li>Owned hypervisor server</li><li>Backups</li><li>Disaster and recovery</li><li>Server configuration optimized for applications Web 81</li></ul></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img src="/img/tymex-logo.png" width="720" height="173" alt="Tymex – Rilevazione ore" loading="lazy">
+      <p>Tymex is a product of Servizi Informatici Srl<br>Via Sicuri 42/a, 43124 Parma (PR)<br>VAT 01721620340<br>
+      <a href="tel:+390521252824">0521 252824</a> · <a href="mailto:info@tymex.it">info@tymex.it</a></p>
+    </div>
+    <div><h2>Product</h2><ul><li><a href="/en/#features">Features</a></li><li><a href="/en/#integrations">Integrations</a></li><li><a href="/en/#selector">Is Tymex right for you?</a></li><li><a href="https://web.tymex.it">Web app login</a></li></ul></div><div><h2>Industries</h2><ul><li><a href="/en/field-service-time-tracking-software/">Field service</a></li><li><a href="/en/timesheet-software-engineering-architecture-firms/">Engineering &amp; architecture firms</a></li><li><a href="/en/timesheet-software-agencies/">Marketing agencies</a></li><li><a href="/en/timesheet-software-it-companies-consultants/">IT companies &amp; consultants</a></li></ul></div><div><h2>Resources</h2><ul><li><a href="/en/faq/">FAQ</a></li><li><a href="/en/support/">Support</a></li><li><a href="/en/about/">About us</a></li><li><a href="/blog/">Blog (Italian)</a></li></ul></div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Servizi Informatici Srl</span><a href="/en/privacy/">Privacy</a><a href="/en/cookie-policy/">Cookies</a><a href="/en/security/">Security</a><a href="/condizioni-generali/">Terms (Italian)</a>
+    <a href="https://www.linkedin.com/showcase/79054773" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=43240bde8c" defer></script>
+</body>
+</html>

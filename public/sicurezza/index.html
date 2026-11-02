@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sicurezza: framework, API e servizio cloud | Tymex</title>
+<meta name="description" content="Come è costruita e protetta la piattaforma Tymex: framework Ground&#x27;81, ruoli e permessi, API con firma hash, servizio in cloud.">
+<link rel="canonical" href="https://www.tymex.it/sicurezza/">
+<link rel="alternate" hreflang="it" href="https://www.tymex.it/sicurezza/">
+<link rel="alternate" hreflang="en" href="https://www.tymex.it/en/security/">
+<link rel="alternate" hreflang="x-default" href="https://www.tymex.it/sicurezza/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tymex">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Sicurezza: framework, API e servizio cloud | Tymex">
+<meta property="og:description" content="Come è costruita e protetta la piattaforma Tymex: framework Ground&#x27;81, ruoli e permessi, API con firma hash, servizio in cloud.">
+<meta property="og:url" content="https://www.tymex.it/sicurezza/">
+<meta property="og:image" content="https://www.tymex.it/img/og-tymex.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#4654A3">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css?v=43240bde8c">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.tymex.it/#org", "name": "Servizi Informatici Srl", "url": "https://www.serviziparma.com", "logo": "https://www.tymex.it/img/tymex-logo.png", "email": "info@tymex.it", "telephone": "+39 0521 252824", "vatID": "IT01721620340", "address": {"@type": "PostalAddress", "streetAddress": "Via Sicuri 42/a", "postalCode": "43124", "addressLocality": "Parma", "addressRegion": "PR", "addressCountry": "IT"}, "sameAs": ["https://www.linkedin.com/showcase/79054773"]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.tymex.it/"}, {"@type": "ListItem", "position": 2, "name": "Sicurezza", "item": "https://www.tymex.it/sicurezza/"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><img src="/img/tymex-logo.png" width="720" height="173" alt="Tymex – Rilevazione ore"></a>
+    <nav class="nav" aria-label="Menu principale"><a href="/#funzionalita">Funzionalità</a><a href="/#settori">Settori</a><a href="/#integrazioni">Integrazioni</a><a href="/faq-timesheet/">FAQ</a><a href="/supporto/">Supporto</a><a href="/#contatti">Contatti</a></nav>
+    <div class="header-actions">
+      <a class="lang" href="/en/security/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="login" href="https://web.tymex.it">Accedi</a>
+      <a class="btn btn--primary" href="/#contatti">Richiedi una demo</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Apri il menu" data-open="Apri il menu" data-close="Chiudi il menu"><svg class="ico" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <nav aria-label="Menu mobile"><a href="/#funzionalita">Funzionalità</a><a href="/#settori">Settori</a><a href="/#integrazioni">Integrazioni</a><a href="/faq-timesheet/">FAQ</a><a href="/supporto/">Supporto</a><a href="/#contatti">Contatti</a><a href="https://web.tymex.it">Accedi</a><a class="btn btn--primary" href="/#contatti">Richiedi una demo</a></nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero"><div class="wrap"><nav class="crumbs" aria-label="Percorso"><ol><li><a href="/">Home</a></li><li aria-current="page">Sicurezza</li></ol></nav>
+<h1><span class="kw intro" style="--d:0">Sicurezza</span><span class="intro" style="--d:1;display:block">Sicurezza della piattaforma Tymex</span></h1></div></section><section class="section" style="padding-top:24px"><div class="wrap"><div class="prose legal"><h2>Cos’è Ground’81</h2>
+<p>Ground’81 è un framework sviluppato da Web’81 specificamente per ospitare applicazioni web. La sua attuale versione (la terza) si distingue per le elevate prestazioni ed il consumo limitato di banda. Grazie alla tecnologia Ajax fogli di stile e librerie javascript vengono caricati una sola volta per sessione, permettendo al contempo all’utente un caricamento pressochè istantaneo della sezione richiesta. Il framework offre una gamma di funzioni comuni e necessarie alla maggior parte dei sistemi, “da solo” non svolge nessun tipo di operazione, ma si pone come gestore di moduli realizzati ad hoc, ai quali semplifica ed organizza il lavoro. Dovendo sviluppare una soluzione customizzata, si preferisce appoggiarsi ad un framework sia in termini di efficenza in fase di sviluppo, sia per i programmi di maintenance che permettono alle applicazioni di essere mantenute aggiornate nel tempo con nuove funzionalità. Per quanto riguarda la profilazione degli utenti il framework permette di associarlo a due caratteristiche: struttura di appartenenza e ruolo di pertinenza. La struttura indica un insieme di utenti che si occupano di un determinato numero di “informazioni”, generalmente coincide con le sedi o le filiali di una azienda. Ogni struttura ha una gamma di utenti propria ed indipendente e può avere strutture sottostanti (sottostrutture), le quali a loro volta avranno i propri utenti e, eventualmente, sottostrutture.</p>
+<p>La struttura ad albero che si viene a formare diventa importante non solo al fine organizzativo, ma anche per quello funzionale. Ogni utente infatti, indipendentemente dalla struttura di appartenenza, ha un ruolo. I ruoli consentono di semplificare il controllo delle autorizzazioni, poiché permettono sia di specificare a quali funzionalità, sia a quale livello di dati possono accedere i vari utenti. Le funzionalità dipendono dal sistema che si andrà a realizzare ed indicano le singole operazioni che possono essere eseguite da un operatore, ad esempio in un modulo di gestione documentale avremo le seguenti funzioni: Visualizza Documento, Aggiungi Documento, Modifica Documento ed Elimina Documento. Ad ogni ruolo abbineremo permessi e funzioni che verranno poi attribuiti agli utenti che rivestono quello specifico ruolo. Il controllo sui dati avviene invece incrociando l’utente e la struttura di appartenenza, mantenendo il grado parentale padre/figlio tra le strutture. In pratica l’accesso ai dati viene suddiviso in quattro livelli:</p>
+<ul><li>Dati Propri: Visualizzo solamente i dati a me assegnati.</li><li>Struttura Propria: Accesso a tutti i dati assegnati ed a tutti quelli assegnati agli utenti della propria struttura.</li><li>Struttura Propria e Strutture sottostanti: Accesso a tutti i dati assegnati, a tutti quelli assegnati agli utenti della propria struttura o delle strutture sottostanti.</li><li>Visione completa: Accesso completo a qualunque dato, indipendentemente dalla propria ubicazione ed all’appartenenza del dato.Tornando all’esempio del modulo di gestione documentale questa classificazione permetterà ad un utente di accedere solo ai propri documenti, a quelli dei colleghi, piuttosto che a quelli della filiale controllata.</li></ul>
+<p>Tra i moduli standard più diffusi:</p>
+<ul><li>Autenticazione: modulo di gestione utenti, con relativa gestione delle permission e del tracciamento degli accessi.</li><li>Power Form: un insieme di strumenti per implementare le funzionalità standard delle form.</li><li>Messages: un sistema di comunicazione similare alle mail che consente di inviare messaggi ad un singolo utente, ad un gruppo o ad una o più strutture</li><li>Comunication: sistema di comunicazione asincrona utente-utente che si sviluppa sulla base di dialoghi e graficamente ricorda la visualizzazione degli SMS dei moderni smartphones.</li><li>Live Chat: comunicazione in tempo reale con altri utenti collegati sul sistema. Non funziona off-line.</li><li>Sidebar: una barra a scomparsa che può essere configurata per contenere informazioni di vario tipo.</li><li>Documentor: un piccolo gestore documentale, che consente di condividere files con gruppi di utenti (identificati per ruolo e per struttura di appartenenza).</li><li>Notify: sistema per la gestione di notifiche. Notify funziona mostrando una riquadro temporizzato nell’angolo superiore destro del browser. In più integra un polling tra client e server permettendo di eseguire controlli anche su eventi client.</li><li>Babele: modulo per la gestione multilingua dell’intero sistema.</li></ul>
+<h2>Integrazione con librerie esterne</h2>
+<ul><li>DataTables: per la gestione dei dati tabellari</li><li>Highcharts: per la generazione on demand di grafici senza l’utilizzo di Flash o Silverlight</li><li>TCPdf: per la generazione di documenti PDF</li><li>PHPMailer: per l’invio di mail (anche massive)</li><li>Google Maps: integrazione con i servizi.</li></ul>
+<h2>API Connect</h2>
+<p>Api Connect è un modulo integrato con il framework Ground ’81 che permette lo scambio dati con la piattaforma e il mondo esterno tramite comunicazione REST API. Il web service consente semplici chiamate HTTP attraverso le quali è possibile inviare istruzioni di inserimento o lettura di dati, o anche semplicemente per eseguire delle operazioni lato server. La comunicazione del dato avviene in formato JSON. Autenticazione L’autenticazione avviene tramite il riconoscimento di 2 codici (user e password). Il sistema genera un token che rimane valido fino alla sua scadenza, oppure fino a quando una delle parte non richiede la generazione di una nuova chiave o ancora finché non viene revocato dall’amministratore. In base alla richiesta del cliente, Il sistema può accettare chiamate da qualunque indirizzo oppure solamente quelli che provengono da una lista di server contenuti in una “white list” di IP. Protocollo hash Al fine di garantire un livello di sicurezza alto, ma soprattutto per essere certi che non vi siano state anomalie durante la trasmissione del dato, viene utilizzato un algoritmo di hash basato su una chiave conosciuta da entrambe le parti, ma non condivisa nella comunicazione. Il modo migliore per spiegarne il funzionamento è fare un esempio. Immaginiamo che Alice voglia dichiarare il suo amore a Bob, per fare ciò decide di inviare un messaggio a Bob per posta. Fin qui tutto bene, ma James, l’ex-fidanzato di Alice, non è contento della cosa e decide di giocare un brutto scherzo alla sua vecchia fiamma. James si finge Bob ingannando il postino, intercetta il messaggio di Alice, lo cambia e lo inoltra quindi al povero Bob.</p>
+<p>Bob non ha modo di accorgersi della truffa perché non ha nessun mezzo per determinare se il messaggio ricevuto proveniva davvero da Alice. La soluzione al problema arriva attraverso le funzioni crittografiche di hash. In sostanza, queste funzioni sono in grado di restituirci una “firma” di un particolare contenuto, la peculiarità che ci interessa è quella che se il contenuto cambia di anche solo un singolo carattere la firma restituita è differente. Non è possibile dalla firma risalire al contenuto, ma abbiamo la sicurezza che due contenuti con la stessa firma sono sicuramente uguali. Torniamo a Bob ed Alice. C’è una cosa che solo loro due conoscono: il nome della canzone che suonava al party in cui si sono visti per la prima volta, “Purple Rain”.</p>
+<p>Alice quindi prende il suo messaggio, ci aggiunge il nome della canzone (il “segreto”) e passa il tutto attraverso un algoritmo di hash, generando una “firma”. Prende quindi il messaggio originale, gli allega la firma ottenuta e la invia a Bob. Bob, una volta ottenuto il messaggio, recupera il contenuto e mette temporaneamente da parte la firma ricevuta. Dopodichè esegue la stessa procedura di firma eseguita da Alice, usando il loro segreto condiviso “Purple Rain” e verifica se la firma da lui ottenuta coincide con quella ricevuta. Le firme coincidono e Bob è sicuro che il messaggio ricevuto sia stato davvero scritto da Alice. Ma siamo davvero sicuri questa volta? E se James provasse a cambiare di nuovo il messaggio? Questa volta, anche se James conosce a perfezione la procedura di firma concordata tra Alice e Bob, non conosce il loro segreto, e dato che questo non viene inviato per posta (il famoso canale non sicuro) non ha modo di ottenerlo. In pratica, James potrebbe provare a cambiare il testo senza cambiare la firma, ma la funzione di hash si accorgerebbe della variazione e genererebbe una firma differente. Bob avrebbe quindi un messaggio con una firma diversa da quella verificata da lui e saprebbe immediatamente che il messaggio non è “genuino”.</p>
+<p>L’esempio per quanto scherzoso sia rende perfettamente l’idea sia del funzionamento, sia dell’importanza di questo accorgimento.</p>
+<h2>Calcolo dell’Hash</h2>
+<p>Nel nostro caso il calcolo dell’hash viene eseguito semplicemente applicando l’algoritmo SHA1 alla stringa ottenuta accodando la “secret key” (quella che nell’esempio era “Purple Rain”) al campo “data” trasmesso.</p>
+<h2>Servizio in Cloud</h2>
+<p>Il programma viene fornito come servizio in cloud accessibile tramite piattaforma web. La sua consultazione sarà possibile tramite qualunque dispositivo (fisso o mobile) dotato di accesso al web e di un browser compatibile con i recenti standard HTML. Ogni utente ha accesso tramite un account personale. Il sistema di licenziamento considera solamente gli account attivi, è pertanto possibile disattivare utenze obsolete conservandone i dati. I dati saranno conservati per la durata del servizio, alla eventuale cessazione potrà essere richieste una esportazione con tariffazione oraria. Il canone, oltre all’accesso al sistema software, è comprensivo di:</p>
+<ul><li>VM HA con funzionamento in mirroring</li><li>Server hypervisor di proprietà</li><li>Backups</li><li>Disaster and recovery</li><li>Configurazione server ottimizzata per applicativi Web 81</li></ul></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img src="/img/tymex-logo.png" width="720" height="173" alt="Tymex – Rilevazione ore" loading="lazy">
+      <p>Tymex è un prodotto di Servizi Informatici Srl<br>Via Sicuri 42/a, 43124 Parma (PR)<br>P.IVA 01721620340<br>
+      <a href="tel:+390521252824">0521 252824</a> · <a href="mailto:info@tymex.it">info@tymex.it</a></p>
+    </div>
+    <div><h2>Prodotto</h2><ul><li><a href="/#funzionalita">Funzionalità</a></li><li><a href="/#integrazioni">Integrazioni</a></li><li><a href="/#selettore">Tymex fa per te?</a></li><li><a href="https://web.tymex.it">Accedi via web</a></li></ul></div><div><h2>Settori</h2><ul><li><a href="/software-assistenza-tecnica/">Assistenza tecnica</a></li><li><a href="/software-per-studi-di-progettazione/">Studi di progettazione</a></li><li><a href="/software-timesheet-agenzie-pubblicitarie/">Agenzie di comunicazione</a></li><li><a href="/software-timesheet-software-house/">Software house e consulenti</a></li></ul></div><div><h2>Risorse</h2><ul><li><a href="/blog/">Blog</a></li><li><a href="/faq-timesheet/">FAQ</a></li><li><a href="/glossario-timesheet/">Glossario timesheet</a></li><li><a href="/supporto/">Supporto</a></li><li><a href="/chi-siamo/">Chi siamo</a></li></ul></div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© <span data-year>2026</span> Servizi Informatici Srl</span><a href="/privacy/">Privacy</a><a href="/cookie-policy/">Cookie</a><a href="/sicurezza/">Sicurezza</a><a href="/condizioni-generali/">Condizioni generali</a>
+    <a href="https://www.linkedin.com/showcase/79054773" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+<script src="/assets/site.js?v=43240bde8c" defer></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+# Sito statico: Netlify pubblica la cartella public/ senza comandi di build.
+[build]
+  publish = "public"
+  command = ""
+
+# ---------------------------------------------------------------- Redirect dal vecchio sito Wix (301)
+# Gli indirizzi rimasti uguali (es. /privacy -> /privacy/) li gestisce Netlify da solo.
+[[redirects]]
+  from = "/contact-9"
+  to = "/#contatti"
+  status = 301
+[[redirects]]
+  from = "/about"
+  to = "/chi-siamo/"
+  status = 301
+[[redirects]]
+  from = "/resources"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/support"
+  to = "/supporto/"
+  status = 301
+[[redirects]]
+  from = "/copia-di-manuale-utente"
+  to = "/condizioni-generali/"
+  status = 301
+[[redirects]]
+  from = "/copia-di-privacy"
+  to = "/cookie-policy/"
+  status = 301
+[[redirects]]
+  from = "/post/timesheet-excel-vantaggi-limiti-alternative"
+  to = "/blog/timesheet-excel-vantaggi-limiti-alternative/"
+  status = 301
+[[redirects]]
+  from = "/post/come-calcolare-la-marginalita-di-una-commessa"
+  to = "/blog/come-calcolare-la-marginalita-di-una-commessa/"
+  status = 301
+[[redirects]]
+  from = "/post/*"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/blog/categories/*"
+  to = "/blog/"
+  status = 301
+# Versione inglese del vecchio sito
+[[redirects]]
+  from = "/en/contact-9"
+  to = "/en/#contact"
+  status = 301
+[[redirects]]
+  from = "/en/copia-di-privacy"
+  to = "/en/cookie-policy/"
+  status = 301
+[[redirects]]
+  from = "/en/sicurezza"
+  to = "/en/security/"
+  status = 301
+[[redirects]]
+  from = "/en/faq-timesheet"
+  to = "/en/faq/"
+  status = 301
+[[redirects]]
+  from = "/en/software-assistenza-tecnica"
+  to = "/en/field-service-time-tracking-software/"
+  status = 301
+[[redirects]]
+  from = "/en/software-per-studi-di-progettazione"
+  to = "/en/timesheet-software-engineering-architecture-firms/"
+  status = 301
+[[redirects]]
+  from = "/en/software-timesheet-agenzie-pubblicitarie"
+  to = "/en/timesheet-software-agencies/"
+  status = 301
+[[redirects]]
+  from = "/en/glossario-timesheet"
+  to = "/glossario-timesheet/"
+  status = 301
+[[redirects]]
+  from = "/en/storico-versioni"
+  to = "/storico-versioni/"
+  status = 301
+[[redirects]]
+  from = "/en/copia-di-manuale-utente"
+  to = "/condizioni-generali/"
+  status = 301
+[[redirects]]
+  from = "/en/resources"
+  to = "/blog/"
+  status = 301
+[[redirects]]
+  from = "/en/post/*"
+  to = "/blog/"
+  status = 301
+
+# ---------------------------------------------------------------- Intestazioni di sicurezza
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; frame-src https://www.youtube-nocookie.com https://player.vimeo.com; media-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'self'"
+
+# ---------------------------------------------------------------- Cache
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

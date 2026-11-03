@@ -7,8 +7,12 @@ SITE = "https://www.tymex.it"
 APPSTORE = "https://apps.apple.com/it/app/tymex/id1613057170"
 PLAY = "https://play.google.com/store/apps/details?id=com.tymex.tymex"
 WEBAPP = "https://web.tymex.it"
-# Video in evidenza: ID YouTube (es. "dQw4w9WgXcQ"). None = mostra il link al canale.
-FEATURED_VIDEO = None
+# Video della serie (YouTube Shorts, verticali), in ordine: (ID, titolo)
+VIDEOS = [
+    ("lhO6xD6vwys", "Quante ore perdi con i rapportini cartacei? (1/3)"),
+    ("VMUY96AAFzM", "Rapportini di lavoro in 3 gesti (2/3)"),
+    ("9-0HO5Zl2gU", "84 ore risparmiate sui rapportini? Ecco il calcolo (3/3)"),
+]
 CHANNEL = "https://www.youtube.com/channel/UC5re37uedr1K2q0xdvCOGiQ"
 
 SECTOR_PATHS = {
@@ -98,8 +102,8 @@ HOME = {
   int_lead="Tymex è completo anche usato da solo, via web e app. Quando serve si collega al software gestionale tramite API, per sincronizzare clienti, commesse e operatori e inviare le ore alla contabilità analitica. È già disponibile l'integrazione con eSOLVER di Sistemi Spa.",
   integr=[("Stand-alone", "Web app e app mobile, nessuna installazione sul PC."), ("API", "Lettura e scrittura verso il gestionale aziendale."),
           ("CSV", "Export di rapportini, clienti e commesse."), ("Power BI", "Cruscotti pronti per analizzare le ore.")],
-  video_eyebrow="Video guide", video_title="Guarda Tymex al lavoro.",
-  video_lead="Brevi video che mostrano come si usa l'app, dalla prima configurazione al rapportino.",
+  video_eyebrow="Video", video_title="Guarda Tymex al lavoro.",
+  video_lead="Tre video brevi: quanto tempo si perde con i rapportini di carta, come se ne compila uno in tre gesti e quante ore si risparmiano.",
   video_cta="Apri il canale YouTube",
   faq_eyebrow="Domande frequenti", faq_title="Le risposte che cerchi.", faq_all="Tutte le domande frequenti",
   faq=[("Cos'è Tymex?", "Tymex è un software timesheet per la rilevazione delle ore lavorate su commessa. Tecnici, dipendenti e collaboratori registrano attività, ore, clienti e commesse da smartphone o web app; l'azienda monitora costi, avanzamento e marginalità senza fogli Excel."),
@@ -159,8 +163,8 @@ HOME = {
   int_lead="Tymex is complete on its own, on web and app. When needed, it connects to your business software via API to sync customers, jobs and staff and send hours to cost accounting. An integration with eSOLVER by Sistemi Spa is already available.",
   integr=[("Stand-alone", "Web app and mobile app, nothing to install on the PC."), ("API", "Read and write to your business software."),
           ("CSV", "Export timesheets, customers and jobs."), ("Power BI", "Ready-made dashboards to analyse hours.")],
-  video_eyebrow="Video guides", video_title="See Tymex at work.",
-  video_lead="Short videos showing how to use the app, from first set-up to the first timesheet (in Italian).",
+  video_eyebrow="Videos", video_title="See Tymex at work.",
+  video_lead="Three short videos (in Italian): how much time paper timesheets cost, how to fill one in with three taps, and how many hours you save.",
   video_cta="Open the YouTube channel",
   faq_eyebrow="FAQ", faq_title="The answers you're looking for.", faq_all="All frequently asked questions",
   faq=[("What is Tymex?", "Tymex is timesheet software for tracking hours worked on jobs and projects. Technicians, employees and contractors log activities, hours, customers and jobs from a smartphone or the web app; the company monitors costs, progress and margins without spreadsheets."),
@@ -308,14 +312,12 @@ def home(page, lang):
         f'<tr><th scope="row">{esc(a)}</th><td data-label="{esc(c1)}">{esc(b)}</td><td class="us" data-label="{esc(c2)}">{esc(c)}</td></tr>'
         for a, b, c in L["cmp_rows"])
     integr = "".join(f"<div><strong>{esc(h)}</strong><span>{esc(p)}</span></div>" for h, p in L["integr"])
-    if FEATURED_VIDEO:
-        video_html = (f'<button class="video-card" type="button" data-video="{FEATURED_VIDEO}" data-video-title="{esc(L["video_title"])}">'
-                      f'<img src="/img/tymex-app-mockup.webp" width="1280" height="720" alt="" loading="lazy">'
-                      f'<span class="play">{I.PLAY}</span><span class="sr-only" hidden>{esc(L["video_title"])}</span></button>')
-    else:
-        video_html = (f'<a class="video-card" href="{CHANNEL}" rel="noopener" aria-label="{esc(L["video_cta"])}">'
-                      f'<img src="/img/tymex-app-mockup.webp" width="1280" height="720" alt="" loading="lazy">'
-                      f'<span class="play">{I.PLAY}</span></a>')
+    cards = []
+    for i, (vid, title) in enumerate(VIDEOS):
+        cards.append(f'<li class="reveal reveal-d{i}"><button class="video-card video-card--v" type="button" data-video="{vid}" data-video-format="vertical" data-video-title="{esc(title)}">'
+                     f'<img src="/img/video-{i+1}.webp" width="540" height="960" alt="" loading="lazy"><span class="play">{I.PLAY}</span></button>'
+                     f'<p class="video-title">{esc(title)}</p></li>')
+    video_html = '<ul class="video-row">' + "".join(cards) + "</ul>"
     faq_link = "/faq-timesheet/" if lang == "it" else "/en/faq/"
     body = f'''
 <section class="hero">
@@ -431,7 +433,7 @@ def home(page, lang):
       <p class="lead mt-m">{esc(L["video_lead"])}</p>
       <div class="btn-row mt-m"><a class="btn btn--ghost" href="{CHANNEL}" rel="noopener">{esc(L["video_cta"])}</a></div>
     </div>
-    <div class="reveal">{video_html}</div>
+    <div>{video_html}</div>
   </div>
 </section>
 
@@ -768,7 +770,7 @@ def support(page, lang):
                  (I.LOCK, "Sicurezza", "Come sono protetti i dati e come funziona l'infrastruttura.", "Leggi di più", "/sicurezza/"),
                  (I.DOC, "Condizioni generali", "Le condizioni generali di contratto del servizio.", "Leggi le condizioni", "/condizioni-generali/"),
                  (I.GLOBE, "Accedi a Tymex", "Entra nella web app con le tue credenziali.", "web.tymex.it", WEBAPP)]
-        help_t, help_p = "Serve aiuto?", "Scrivici o chiamaci. Orari del supporto: [SEGNAPOSTO]."
+        help_t, help_p = "Serve aiuto?", "Scrivici o chiamaci: ti rispondiamo al più presto."
     else:
         path, crumbs = "/en/support/", [("Support", "/en/support/")]
         title = "Tymex support: user guide, video guides and release notes"
@@ -780,7 +782,7 @@ def support(page, lang):
                  (I.LOCK, "Security", "How data is protected and how the infrastructure works.", "Read more", "/en/security/"),
                  (I.DOC, "Terms and conditions", "The general terms of the service (in Italian).", "Read the terms", "/condizioni-generali/"),
                  (I.GLOBE, "Log in to Tymex", "Open the web app with your credentials.", "web.tymex.it", WEBAPP)]
-        help_t, help_p = "Need help?", "Email or call us. Support hours: [PLACEHOLDER]."
+        help_t, help_p = "Need help?", "Email or call us and we will get back to you as soon as possible."
     cs = ""
     for ic, h, p, link, href in cards:
         a = f'<a href="{href}" style="font-weight:700">{esc(link)} →</a>' if href else f'<span class="note">{esc(link)}</span>'

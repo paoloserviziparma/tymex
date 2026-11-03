@@ -155,6 +155,7 @@ main{padding-top:var(--header-h)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:56px;align-items:center}
 .split--rev{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
 .split--top{align-items:start}
+.split>*{min-width:0}
 .split--wl{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:stretch}
 @media (max-width:900px){.split,.split--rev,.split--wl{grid-template-columns:1fr;gap:40px}.split--rev>:first-child{order:2}}
 .frame{background:#fff;border-radius:24px;padding:12px;box-shadow:var(--shadow);overflow:hidden}
@@ -230,6 +231,12 @@ main{padding-top:var(--header-h)}
 .video-card:hover img{opacity:1;transform:scale(1.02)}
 .video-card .play{position:absolute;inset:0;margin:auto;width:84px;height:84px;border-radius:50%;background:#fff;color:var(--primary);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 40px -10px rgba(0,0,0,.45)}
 .video-card .play svg{width:34px;height:34px;margin-left:4px}
+.video-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.video-card--v{aspect-ratio:9/16;max-height:min(62vh,520px);margin:0 auto}
+.video-card--v .play{width:60px;height:60px}.video-card--v .play svg{width:26px;height:26px}
+.video-title{font-size:14px;font-weight:700;line-height:1.35;margin-top:10px;color:var(--ink)}
+@media (max-width:560px){.video-row{grid-template-columns:repeat(3,minmax(150px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.video-row li{scroll-snap-align:start}}
+.video-modal.is-vertical .inner{aspect-ratio:9/16;height:auto;max-height:none;width:min(100%,calc((100vh - 120px) * 9 / 16),480px)}
 .video-modal{position:fixed;inset:0;z-index:90;background:rgba(28,14,54,.86);display:flex;align-items:center;justify-content:center;padding:24px}
 .video-modal .inner{width:min(1100px,100%);aspect-ratio:16/9;max-height:calc(100vh - 120px);background:#000;border-radius:18px;overflow:hidden;position:relative}
 .video-modal iframe,.video-modal video{width:100%;height:100%;border:0;display:block}

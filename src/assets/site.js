@@ -102,7 +102,7 @@
     lastFocus = b;
     var src = b.dataset.video, type = b.dataset.videoType || "youtube", title = b.dataset.videoTitle || "Video";
     modal = document.createElement("div");
-    modal.className = "video-modal"; modal.setAttribute("role", "dialog"); modal.setAttribute("aria-modal", "true"); modal.setAttribute("aria-label", title);
+    modal.className = "video-modal" + (b.dataset.videoFormat === "vertical" ? " is-vertical" : ""); modal.setAttribute("role", "dialog"); modal.setAttribute("aria-modal", "true"); modal.setAttribute("aria-label", title);
     var inner = document.createElement("div"); inner.className = "inner";
     var media;
     if (type === "mp4") { media = document.createElement("video"); media.src = src; media.controls = true; media.autoplay = true; media.playsInline = true; }

@@ -76,7 +76,7 @@
   status = 301
 [[redirects]]
   from = "/en/glossario-timesheet"
-  to = "/glossario-timesheet/"
+  to = "/en/timesheet-glossary/"
   status = 301
 [[redirects]]
   from = "/en/storico-versioni"
@@ -88,11 +88,11 @@
   status = 301
 [[redirects]]
   from = "/en/resources"
-  to = "/blog/"
+  to = "/en/blog/"
   status = 301
 [[redirects]]
   from = "/en/post/*"
-  to = "/blog/"
+  to = "/en/blog/"
   status = 301
 
 # ---------------------------------------------------------------- Intestazioni di sicurezza

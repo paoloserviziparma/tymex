@@ -761,10 +761,10 @@ def support(page, lang):
     import build
     if lang == "it":
         path, crumbs = "/supporto/", [("Supporto", "/supporto/")]
-        title = "Supporto Tymex: manuale, video guide e storico versioni"
-        desc = "Assistenza per gli utenti Tymex: manuale utente, video guide, storico delle versioni, condizioni generali e contatti del supporto."
+        title = "Supporto Tymex: guida utente, video e storico versioni"
+        desc = "Assistenza per gli utenti Tymex: guida utente in PDF, video, storico delle versioni, condizioni generali e contatti del supporto."
         h1, kw = "Come possiamo aiutarti?", "Supporto"
-        cards = [(I.DOC, "Manuale utente", "La guida completa per configurare e usare Tymex.", "[SEGNAPOSTO: link al manuale PDF]", None),
+        cards = [(I.DOC, "Guida utente", "La guida ai primi passi: accesso, configurazione, commesse, operatori e rapportini (PDF).", "Scarica la guida", "/docs/guida-utente-tymex.pdf"),
                  (I.PLAY.replace('fill="currentColor"', 'fill="currentColor" width="26" height="26"'), "Video guide", "Brevi video su come si usano app e web app.", "Apri il canale YouTube", CHANNEL),
                  (I.COPY, "Storico versioni", "Tutte le novità rilasciate, versione per versione.", "Vedi lo storico", "/storico-versioni/"),
                  (I.LOCK, "Sicurezza", "Come sono protetti i dati e come funziona l'infrastruttura.", "Leggi di più", "/sicurezza/"),
@@ -776,7 +776,7 @@ def support(page, lang):
         title = "Tymex support: user guide, video guides and release notes"
         desc = "Help for Tymex users: user guide, video guides, release notes, terms and support contacts."
         h1, kw = "How can we help?", "Support"
-        cards = [(I.DOC, "User guide", "The complete guide to setting up and using Tymex (in Italian).", "[PLACEHOLDER: link to user guide PDF]", None),
+        cards = [(I.DOC, "User guide", "The getting-started guide: login, set-up, jobs, staff and timesheets (PDF, in Italian).", "Download the guide", "/docs/guida-utente-tymex.pdf"),
                  (I.PLAY.replace('fill="currentColor"', 'fill="currentColor" width="26" height="26"'), "Video guides", "Short videos on using the app and the web app (in Italian).", "Open the YouTube channel", CHANNEL),
                  (I.COPY, "Release notes", "Every new feature, version by version (in Italian).", "See release notes", "/storico-versioni/"),
                  (I.LOCK, "Security", "How data is protected and how the infrastructure works.", "Read more", "/en/security/"),

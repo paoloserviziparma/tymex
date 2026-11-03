@@ -85,8 +85,8 @@ T = {
                                 ("Engineering & architecture firms", "/en/timesheet-software-engineering-architecture-firms/"),
                                 ("Marketing agencies", "/en/timesheet-software-agencies/"),
                                 ("IT companies & consultants", "/en/timesheet-software-it-companies-consultants/")]),
-                ("Resources", [("FAQ", "/en/faq/"), ("Support", "/en/support/"), ("About us", "/en/about/"),
-                               ("Blog (Italian)", "/blog/")]),
+                ("Resources", [("Blog", "/en/blog/"), ("FAQ", "/en/faq/"), ("Timesheet glossary", "/en/timesheet-glossary/"),
+                               ("Support", "/en/support/"), ("About us", "/en/about/")]),
             ],
             "legal": [("Privacy", "/en/privacy/"), ("Cookies", "/en/cookie-policy/"), ("Security", "/en/security/"),
                       ("Terms (Italian)", "/condizioni-generali/")],
@@ -250,7 +250,7 @@ def main():
     # pulizia delle pagine generate (immagini e font restano)
     for name in os.listdir(OUT):
         p = os.path.join(OUT, name)
-        if name in ("img", "fonts", "llms.txt", "_redirects"):
+        if name in ("img", "fonts", "docs", "llms.txt", "_redirects"):
             continue
         if os.path.isdir(p):
             shutil.rmtree(p)

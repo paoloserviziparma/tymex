@@ -91,23 +91,44 @@ def faq_pages(page):
          body, alts={"it": "/faq-timesheet/", "en": "/en/faq/"}, crumbs=[("FAQ", "/en/faq/")], ld=[faq_ld(en)])
 
 # ------------------------------------------------------------------ GLOSSARIO
+GLOSS = {"it": "/glossario-timesheet/", "en": "/en/timesheet-glossary/"}
+
+def slugify(t):
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
 def glossary(page):
+    from content_en_blog import GLOSSARY_EN
     terms, cur = [], None
     for b in LEG["/glossario-timesheet"]["blocks"]:
         if b["t"] == "h6":
             cur = [b["txt"], ""]; terms.append(cur)
-        elif b["t"] == "p" and cur and b["txt"].strip("​ ").strip():
+        elif b["t"] == "p" and cur and b["txt"].strip("\u200b ").strip():
             cur[1] = (cur[1] + " " + b["txt"]).strip()
     terms = [(t, d) for t, d in terms if d and "Power BI" not in t + d]
-    dl = "".join(f'<div id="{re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")}"><dt>{esc(t)}</dt><dd>{esc(fix_it(d))}</dd></div>' for t, d in terms)
-    body = hero("it", [("Glossario timesheet", "/glossario-timesheet/")], "Glossario", "Glossario timesheet e gestione commesse.",
-                "Le definizioni dei principali termini della rilevazione delle ore lavorate, della gestione delle commesse e del controllo dei costi aziendali.")
-    body += f'<section class="section" style="padding-top:24px"><div class="wrap"><dl class="gloss" style="margin:0">{dl}</dl></div></section>' + cta_band("it")
-    ld = {"@type": "DefinedTermSet", "name": "Glossario timesheet e gestione commesse", "inLanguage": "it",
-          "hasDefinedTerm": [{"@type": "DefinedTerm", "name": t, "description": d} for t, d in terms]}
-    page("/glossario-timesheet/", "it", "Glossario timesheet e gestione commesse: definizioni | Tymex",
-         "Cos'è un timesheet, la consuntivazione, la marginalità, il costo orario, il centro di costo: tutte le definizioni della rilevazione ore e gestione commesse.",
-         body, crumbs=[("Glossario timesheet", "/glossario-timesheet/")], ld=[ld])
+    missing = [t for t, _ in terms if t not in GLOSSARY_EN]
+    if missing:
+        raise SystemExit(f"Glossario: manca la traduzione inglese di {missing}")
+    for lang in ("it", "en"):
+        items = [(t, fix_it(d)) for t, d in terms] if lang == "it" else [GLOSSARY_EN[t] for t, _ in terms]
+        dl = "".join(f'<div id="{slugify(t)}"><dt>{esc(t)}</dt><dd>{esc(d)}</dd></div>' for t, d in items)
+        if lang == "it":
+            crumbs = [("Glossario timesheet", GLOSS["it"])]
+            body = hero("it", crumbs, "Glossario", "Glossario timesheet e gestione commesse.",
+                        "Le definizioni dei principali termini della rilevazione delle ore lavorate, della gestione delle commesse e del controllo dei costi aziendali.")
+            title = "Glossario timesheet e gestione commesse: definizioni | Tymex"
+            desc = "Cos'è un timesheet, la consuntivazione, la marginalità, il costo orario, il centro di costo: tutte le definizioni della rilevazione ore e gestione commesse."
+            name = "Glossario timesheet e gestione commesse"
+        else:
+            crumbs = [("Timesheet glossary", GLOSS["en"])]
+            body = hero("en", crumbs, "Glossary", "Timesheet and job management glossary.",
+                        "Definitions of the key terms in tracking hours worked, managing jobs and controlling company costs.")
+            title = "Timesheet and job management glossary: definitions | Tymex"
+            desc = "What a timesheet is, actual reporting, profit margin, hourly cost, cost centre: all the definitions for time tracking and job management."
+            name = "Timesheet and job management glossary"
+        body += f'<section class="section" style="padding-top:24px"><div class="wrap"><dl class="gloss" style="margin:0">{dl}</dl></div></section>' + cta_band(lang)
+        ld = {"@type": "DefinedTermSet", "name": name, "inLanguage": lang,
+              "hasDefinedTerm": [{"@type": "DefinedTerm", "name": t, "description": d} for t, d in items]}
+        page(GLOSS[lang], lang, title, desc, body, alts=GLOSS, crumbs=crumbs, ld=[ld])
 
 # ------------------------------------------------------------------ BLOG
 POSTS = [
@@ -166,11 +187,86 @@ def render_blocks(blocks, stop):
     close()
     return "\n".join(out)
 
+def render_markup(text):
+    """Testo nel formato di content_en_blog.py -> HTML."""
+    out, mode, rows = [], None, []
+    def close():
+        nonlocal mode, rows
+        if mode == "ul":
+            out.append("</ul>")
+        elif mode == "table":
+            head, *rest = rows
+            out.append("<table><thead><tr>" + "".join(f'<th scope="col">{esc(c)}</th>' for c in head) + "</tr></thead><tbody>"
+                       + "".join("<tr>" + "".join(f"<td>{esc(c)}</td>" for c in r) + "</tr>" for r in rest) + "</tbody></table>")
+            rows = []
+        mode = None
+    for line in text.strip().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith("- "):
+            if mode != "ul":
+                close(); out.append("<ul>"); mode = "ul"
+            out.append(f"<li>{esc(line[2:])}</li>"); continue
+        if line.startswith("|"):
+            if mode != "table":
+                close(); mode = "table"
+            rows.append([c.strip() for c in line.strip("|").split("|")]); continue
+        close()
+        if line.startswith("### "):
+            out.append(f"<h3>{esc(line[4:])}</h3>")
+        elif line.startswith("## "):
+            out.append(f"<h2>{esc(line[3:])}</h2>")
+        elif line.startswith("= "):
+            out.append(f'<p class="formula">{esc(line[2:])}</p>')
+        else:
+            out.append(f"<p>{esc(line)}</p>")
+    close()
+    return "\n".join(out)
+
+MONTHS = {"it": ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],
+          "en": ["January","February","March","April","May","June","July","August","September","October","November","December"]}
+
+def fmt_date(d, lang):
+    m = MONTHS[lang][int(d[5:7]) - 1]
+    return f"{int(d[8:])} {m} {d[:4]}"
+
+def blog_en(page):
+    from content_en_blog import POSTS_EN
+    cards = ""
+    for P in POSTS_EN:
+        url = f"/en/blog/{P['slug']}/"
+        alts = {"it": f"/blog/{P['it_slug']}/", "en": url}
+        d = P["date"]; dd = fmt_date(d, "en")
+        crumbs = [("Blog", "/en/blog/"), (P["title"], url)]
+        body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("en", crumbs)}
+<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · Tymex</p></div></section>
+<article class="section" style="padding-top:12px"><div class="wrap"><div class="prose">
+<figure class="reveal"><img src="{P["img"]}" width="1200" height="800" alt="{esc(P["alt"])}"></figure>
+{render_markup(P["body"])}
+<div class="callout"><strong>Read more:</strong> <a href="/en/faq/">Timesheet FAQ</a> · <a href="/en/timesheet-glossary/">Timesheet glossary</a> · <a href="/en/">Tymex, job time tracking</a></div>
+</div></div></article>''' + cta_band("en")
+        ld = {"@type": "BlogPosting", "headline": P["title"], "datePublished": d, "dateModified": d, "image": SITE + P["img"],
+              "inLanguage": "en", "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
+              "mainEntityOfPage": SITE + url, "description": P["desc"]}
+        page(url, "en", P["seo"], P["desc"], body, alts=alts, crumbs=crumbs, ld=[ld], og_type="article")
+        cards += f'''<a class="post-card reveal" href="{url}"><img src="{P["img"]}" width="1200" height="800" alt="" loading="lazy">
+<div><p class="note"><time datetime="{d}">{dd}</time></p><h2 class="mt-s">{esc(P["title"])}</h2><p>{esc(P["desc"])}</p></div></a>'''
+    body = hero("en", [("Blog", "/en/blog/")], "Blog", "Insights on time tracking and job management.",
+                "Practical guides to controlling time, costs and margins on your jobs.")
+    body += f'<section class="section" style="padding-top:24px"><div class="wrap"><div class="post-cards">{cards}</div></div></section>' + cta_band("en")
+    page("/en/blog/", "en", "Blog on timesheets, time tracking and job margins | Tymex",
+         "Articles and guides on timesheets, tracking hours worked, cost control and job profit margins.",
+         body, alts={"it": "/blog/", "en": "/en/blog/"}, crumbs=[("Blog", "/en/blog/")], ld=[{"@type": "Blog", "name": "Tymex blog", "inLanguage": "en"}])
+
 def blog(page):
+    from content_en_blog import POSTS_EN
+    en_by_it = {P["it_slug"]: P["slug"] for P in POSTS_EN}
     cards = ""
     for P in POSTS:
         url = f"/blog/{P['slug']}/"
-        d = P["date"]; dd = f"{int(d[8:])} {['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'][int(d[5:7])-1]} {d[:4]}"
+        d = P["date"]; dd = fmt_date(d, "it")
+        alts = {"it": url, "en": f"/en/blog/{en_by_it[P['slug']]}/"}
         crumbs = [("Blog", "/blog/"), (P["title"], url)]
         content = render_blocks(LEG[P["key"]]["blocks"], P["stop"])
         body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("it", crumbs)}
@@ -183,7 +279,7 @@ def blog(page):
         ld = {"@type": "BlogPosting", "headline": P["title"], "datePublished": d, "dateModified": d, "image": SITE + P["img"],
               "inLanguage": "it", "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
               "mainEntityOfPage": SITE + url, "description": P["desc"]}
-        page(url, "it", P["seo"], P["desc"], body, crumbs=crumbs, ld=[ld], og_type="article")
+        page(url, "it", P["seo"], P["desc"], body, alts=alts, crumbs=crumbs, ld=[ld], og_type="article")
         excerpt = P["desc"]
         cards += f'''<a class="post-card reveal" href="{url}"><img src="{P["img"]}" width="1200" height="800" alt="" loading="lazy">
 <div><p class="note"><time datetime="{d}">{dd}</time></p><h2 class="mt-s">{esc(P["title"])}</h2><p>{esc(excerpt)}</p></div></a>'''
@@ -192,7 +288,7 @@ def blog(page):
     body += f'<section class="section" style="padding-top:24px"><div class="wrap"><div class="post-cards">{cards}</div></div></section>' + cta_band("it")
     page("/blog/", "it", "Blog su timesheet, rilevazione ore e marginalità delle commesse | Tymex",
          "Articoli e guide su timesheet, rilevazione delle ore lavorate, controllo dei costi e marginalità delle commesse.",
-         body, crumbs=[("Blog", "/blog/")], ld=[{"@type": "Blog", "name": "Blog Tymex", "inLanguage": "it"}])
+         body, alts={"it": "/blog/", "en": "/en/blog/"}, crumbs=[("Blog", "/blog/")], ld=[{"@type": "Blog", "name": "Blog Tymex", "inLanguage": "it"}])
 
 # ------------------------------------------------------------------ STORICO VERSIONI
 def versions(page):
@@ -225,4 +321,5 @@ def build(page):
     faq_pages(page)
     glossary(page)
     blog(page)
+    blog_en(page)
     versions(page)

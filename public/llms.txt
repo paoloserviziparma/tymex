@@ -22,7 +22,7 @@
 - [Glossario timesheet](https://www.tymex.it/glossario-timesheet/)
 - [Blog](https://www.tymex.it/blog/)
 - [Storico versioni](https://www.tymex.it/storico-versioni/)
-- [Supporto](https://www.tymex.it/supporto/)
+- [Supporto](https://www.tymex.it/supporto/) – include la guida utente in PDF: https://www.tymex.it/docs/guida-utente-tymex.pdf
 - [Chi siamo](https://www.tymex.it/chi-siamo/)
 - [Sicurezza](https://www.tymex.it/sicurezza/)
 
@@ -30,3 +30,5 @@
 
 - [Home (EN)](https://www.tymex.it/en/)
 - [FAQ (EN)](https://www.tymex.it/en/faq/)
+- [Timesheet glossary (EN)](https://www.tymex.it/en/timesheet-glossary/)
+- [Blog (EN)](https://www.tymex.it/en/blog/)

@@ -10,6 +10,7 @@ public/                 ← il sito pubblicato (generato + immagini e font)
   index.html, en/…      ← pagine IT e EN
   assets/site.css|js    ← stile e script (copiati da src/assets a ogni build)
   img/                  ← immagini ottimizzate (webp), favicon, og-tymex.png
+  docs/                 ← guida utente in PDF
   fonts/                ← Montserrat variabile, ospitato in locale (licenza OFL)
   sitemap.xml, robots.txt, llms.txt, site.webmanifest
 src/
@@ -47,7 +48,9 @@ sostituzioni elencate e si ferma se un testo originale non viene trovato.
 | `/supporto/` | `/en/support/` |
 | `/privacy/`, `/cookie-policy/`, `/sicurezza/` | `/en/privacy/`, `/en/cookie-policy/`, `/en/security/` |
 | `/grazie/` | `/en/thank-you/` |
-| `/glossario-timesheet/`, `/blog/…`, `/storico-versioni/`, `/condizioni-generali/` | solo italiano |
+| `/glossario-timesheet/` | `/en/timesheet-glossary/` |
+| `/blog/…` | `/en/blog/…` (testi in `src/content_en_blog.py`) |
+| `/storico-versioni/`, `/condizioni-generali/` | solo italiano |
 
 ## Modulo "Richiedi una demo"
 
@@ -59,10 +62,9 @@ destinatario `info@tymex.it`.
 
 ## Video
 
-Il video in evidenza si imposta in `src/pages_marketing.py` → `FEATURED_VIDEO = "ID_YOUTUBE"`.
+La serie di video si imposta in `src/pages_marketing.py` → `VIDEOS` (ID YouTube e titolo); le anteprime sono `public/img/video-N.webp`.
 I video si caricano solo al clic, da `youtube-nocookie.com` (Vimeo con `dnt=1`, oppure mp4 locali con
-`data-video-type="mp4"`). Finché non c'è un ID, la sezione porta al canale YouTube.
-
+`data-video-type="mp4"`). 
 ## Statistiche, cookie, privacy
 
 Il sito non usa cookie né script di tracciamento: nessun banner. Le statistiche si attivano con

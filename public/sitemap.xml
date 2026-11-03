@@ -115,18 +115,58 @@
   <url>
     <loc>https://www.tymex.it/glossario-timesheet/</loc>
     <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/glossario-timesheet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/timesheet-glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/glossario-timesheet/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/timesheet-glossary/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/glossario-timesheet/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/timesheet-glossary/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/glossario-timesheet/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/</loc>
     <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/</loc>
     <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/how-to-calculate-job-profit-margin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/blog/</loc>
     <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/blog/how-to-calculate-job-profit-margin/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/how-to-calculate-job-profit-margin/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/blog/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/storico-versioni/</loc>

@@ -98,7 +98,7 @@ def glossary(page):
             cur = [b["txt"], ""]; terms.append(cur)
         elif b["t"] == "p" and cur and b["txt"].strip("​ ").strip():
             cur[1] = (cur[1] + " " + b["txt"]).strip()
-    terms = [(t, d) for t, d in terms if d]
+    terms = [(t, d) for t, d in terms if d and "Power BI" not in t + d]
     dl = "".join(f'<div id="{re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")}"><dt>{esc(t)}</dt><dd>{esc(fix_it(d))}</dd></div>' for t, d in terms)
     body = hero("it", [("Glossario timesheet", "/glossario-timesheet/")], "Glossario", "Glossario timesheet e gestione commesse.",
                 "Le definizioni dei principali termini della rilevazione delle ore lavorate, della gestione delle commesse e del controllo dei costi aziendali.")
@@ -207,8 +207,10 @@ def versions(page):
             if re.fullmatch(r"\d{2}/\d{2}/\d{4}", t):
                 cur["date"] = t
             else:
-                cur["items"].append(fix_it(t.lstrip("- ").strip()))
+                if "Power BI" not in t:
+                    cur["items"].append(fix_it(t.lstrip("- ").strip()))
     arts = ""
+    vs = [v for v in vs if v["items"]]
     for v in vs:
         dd, mm, yy = v["date"].split("/")
         arts += f'''<article class="reveal"><h2>Versione {esc(v["v"])}</h2><time datetime="{yy}-{mm}-{dd}">{v["date"]}</time>

@@ -15,6 +15,9 @@ VIDEOS = [
 ]
 CHANNEL = "https://www.youtube.com/channel/UC5re37uedr1K2q0xdvCOGiQ"
 
+DETAIL_ALT = {"it": "Tymex: dettaglio di una commessa con ore per servizio e rapportini dei singoli operatori",
+              "en": "Tymex: job detail with hours by service and each person's timesheet entries"}
+
 SECTOR_PATHS = {
     "assistenza": {"it": "/software-assistenza-tecnica/", "en": "/en/field-service-time-tracking-software/"},
     "progettazione": {"it": "/software-per-studi-di-progettazione/", "en": "/en/timesheet-software-engineering-architecture-firms/"},
@@ -83,10 +86,9 @@ HOME = {
   web_eyebrow="Dall'ufficio e dal campo", web_title="Stessi dati, da telefono e da PC.",
   web_lead="Chi è fuori sede usa l'app per iPhone o Android. In ufficio si lavora dalla web app su web.tymex.it: nessuna installazione, funziona su qualsiasi PC Windows.",
   web_alt="Tymex sul computer (web app) e sullo smartphone (app)",
-  data_eyebrow="Leggi i dati", data_title="Cruscotti web, anche su Power BI.",
-  data_lead="Ore per cliente, per operatore, per commessa: i cruscotti mostrano dove va il tempo e dove si perde margine. Le giornate non caricate saltano subito all'occhio. Chi usa Microsoft Power BI trova i cruscotti già pronti.",
-  data_note="L'uso dei cruscotti su Power BI richiede Microsoft Power BI Pro.",
-  data_alt="Cruscotto di Tymex: calendario mensile delle ore per operatore ed elenco dei rapportini",
+  data_eyebrow="Leggi i dati", data_title="Cruscotti web, sempre aggiornati.",
+  data_lead="Il cruscotto generale mostra le ore per commessa, per cliente, per operatore e per servizio, con il costo calcolato dal costo orario di ogni persona. Filtri per mese, cliente, commessa e periodo; nel dettaglio di ogni commessa trovi servizi, rapportini e totali, pronti da esportare in Excel.",
+  data_alt="Cruscotto generale di Tymex: ore lavorate per commessa, per operatore con i costi, per servizio e per cliente",
   sect_eyebrow="Per chi è", sect_title="Pensato per chi lavora su commessa.",
   sectors=[("assistenza", "Assistenza tecnica, impiantisti e manutentori", "Rapportini di intervento digitali, tecnici sul campo, ore per cliente."),
            ("progettazione", "Studi di progettazione", "Ore preventivate e consuntivate, per progetto e per fase."),
@@ -101,7 +103,7 @@ HOME = {
   int_eyebrow="Integrazioni", int_title="Funziona da solo. E, se vuoi, parla con il tuo gestionale.",
   int_lead="Tymex è completo anche usato da solo, via web e app. Quando serve si collega al software gestionale tramite API, per sincronizzare clienti, commesse e operatori e inviare le ore alla contabilità analitica. È già disponibile l'integrazione con eSOLVER di Sistemi Spa.",
   integr=[("Stand-alone", "Web app e app mobile, nessuna installazione sul PC."), ("API", "Lettura e scrittura verso il gestionale aziendale."),
-          ("CSV", "Export di rapportini, clienti e commesse."), ("Power BI", "Cruscotti pronti per analizzare le ore.")],
+          ("CSV", "Export di rapportini, clienti e commesse."), ("Cruscotti web", "Ore per commessa, cliente, operatore e servizio.")],
   video_eyebrow="Video", video_title="Guarda Tymex al lavoro.",
   video_lead="Tre video brevi: quanto tempo si perde con i rapportini di carta, come se ne compila uno in tre gesti e quante ore si risparmiano.",
   video_cta="Apri il canale YouTube",
@@ -144,10 +146,9 @@ HOME = {
   web_eyebrow="Office and field", web_title="Same data, on phone and desktop.",
   web_lead="People in the field use the iPhone or Android app. In the office, the web app at web.tymex.it needs no installation and runs on any Windows PC.",
   web_alt="Tymex on a laptop (web app) and on a smartphone (app)",
-  data_eyebrow="Read the data", data_title="Web dashboards, also in Power BI.",
-  data_lead="Hours by customer, by person, by job: the dashboards show where time goes and where margin is lost. Days without entries stand out immediately. If you use Microsoft Power BI, the dashboards are ready to go.",
-  data_note="Using the dashboards in Power BI requires Microsoft Power BI Pro.",
-  data_alt="Tymex dashboard: monthly calendar of hours per person and list of timesheet entries",
+  data_eyebrow="Read the data", data_title="Web dashboards, always up to date.",
+  data_lead="The main dashboard shows hours by job, by customer, by person and by service, with costs worked out from each person's hourly rate. Filter by month, customer, job and period; each job's detail lists services, timesheets and totals, ready to export to Excel.",
+  data_alt="Tymex main dashboard: hours worked by job, by person with costs, by service and by customer",
   sect_eyebrow="Who it's for", sect_title="Built for businesses that work by the job.",
   sectors=[("assistenza", "Field service, installers and maintenance", "Digital service reports, technicians on the road, hours per customer."),
            ("progettazione", "Engineering and architecture firms", "Budgeted versus actual hours, by project and phase."),
@@ -162,7 +163,7 @@ HOME = {
   int_eyebrow="Integrations", int_title="Works on its own. And, if you like, talks to your ERP.",
   int_lead="Tymex is complete on its own, on web and app. When needed, it connects to your business software via API to sync customers, jobs and staff and send hours to cost accounting. An integration with eSOLVER by Sistemi Spa is already available.",
   integr=[("Stand-alone", "Web app and mobile app, nothing to install on the PC."), ("API", "Read and write to your business software."),
-          ("CSV", "Export timesheets, customers and jobs."), ("Power BI", "Ready-made dashboards to analyse hours.")],
+          ("CSV", "Export timesheets, customers and jobs."), ("Web dashboards", "Hours by job, customer, person and service.")],
   video_eyebrow="Videos", video_title="See Tymex at work.",
   video_lead="Three short videos (in Italian): how much time paper timesheets cost, how to fill one in with three taps, and how many hours you save.",
   video_cta="Open the YouTube channel",
@@ -386,9 +387,8 @@ def home(page, lang):
       <span class="eyebrow">{esc(L["data_eyebrow"])}</span>
       <h2 class="h-lg" data-split>{esc(L["data_title"])}</h2>
       <p class="lead mt-m">{esc(L["data_lead"])}</p>
-      <p class="note mt-m">{esc(L["data_note"])}</p>
     </div>
-    <div class="frame reveal"><img src="/img/cruscotto-ore-operatore.webp" width="1400" height="629" alt="{esc(L["data_alt"])}" loading="lazy"></div>
+    <div class="frame reveal"><img src="/img/cruscotto-generale.webp" width="1498" height="895" alt="{esc(L["data_alt"])}" loading="lazy"></div>
   </div>
 </section>
 
@@ -682,7 +682,7 @@ def sector_page(page, key, lang):
   <div class="wrap">
     <div class="split">
       <div><h2 class="h-lg" data-split>{"Come ti aiuta Tymex" if lang == "it" else "How Tymex helps"}</h2></div>
-      <div class="frame reveal" style="max-width:260px;justify-self:center;padding:9px;border-radius:40px;background:var(--ink-2)"><img src="/img/app-nuovo-rapportino.webp" width="600" height="1298" alt="{esc(HOME[lang]["alt_b"])}" loading="lazy" style="border-radius:32px"></div>
+      <div class="frame reveal"><img src="/img/dettaglio-commesse.webp" width="1607" height="879" alt="{esc(DETAIL_ALT[lang])}" loading="lazy"></div>
     </div>
     <div class="grid grid--2 mt-l">{blocks}</div>
   </div>

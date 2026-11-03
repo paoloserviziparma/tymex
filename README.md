@@ -77,5 +77,5 @@ Ogni push su `main` pubblica il sito e consuma crediti Netlify: raggruppare le m
 ## Crediti
 
 - Font Montserrat (SIL Open Font License), da Fontsource.
-- Screenshot e mockup dell'app: Servizi Informatici Srl. Illustrazioni SVG originali nei colori del logo.
+- Screenshot (app, cruscotto generale, dettaglio commesse) e mockup: Servizi Informatici Srl. Illustrazioni SVG originali nei colori del logo.
 - Immagini di copertina del blog: riprese dal vecchio sito.

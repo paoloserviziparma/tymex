@@ -1,3 +1,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+src/guida/*.woff2
+src/guida/tymex-logo.png
+src/guida/guida.html
+src/guida/guida-utente-tymex.pdf

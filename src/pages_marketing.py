@@ -64,6 +64,7 @@ HOME = {
   lead="Tecnici, consulenti e collaboratori inseriscono le ore dallo smartphone in pochi tap. Tu controlli costi, avanzamento e marginalità delle commesse in tempo reale, senza fogli Excel.",
   cta1="Richiedi una demo gratuita", cta2="Guarda come funziona",
   checks=["App iOS e Android", "Web app da PC", "Attivo in 3 giorni dall'ordine"],
+  app_label="Scarica l'app o accedi dal web",
   badge=("fino al 70%", "di tempo in meno per raccogliere le ore"),
   alt_a="App Tymex: calendario dei rapportini con lo stato di ogni giornata",
   alt_b="App Tymex: schermata Nuovo rapportino con cliente, commessa, servizio e ore lavorate",
@@ -124,6 +125,7 @@ HOME = {
   lead="Technicians, consultants and staff log their hours from their phone in a few taps. You see job costs, progress and margins in real time, without spreadsheets.",
   cta1="Book a free demo", cta2="See how it works",
   checks=["iOS and Android apps", "Web app for desktop", "Up and running in 3 days"],
+  app_label="Get the app or log in on the web",
   badge=("up to 70%", "less time spent collecting hours"),
   alt_a="Tymex app: timesheet calendar showing the status of each day",
   alt_b="Tymex app: New timesheet screen with customer, job, service and hours worked",
@@ -331,7 +333,14 @@ def home(page, lang):
         <a class="btn btn--primary" href="#{CONTACT[lang]["id"]}">{esc(L["cta1"])}</a>
         <a class="btn btn--ghost" href="#{ids[0]}">{esc(L["cta2"])}</a>
       </div>
-      <div class="check-row intro" style="--d:4">{checks}</div>
+      <div class="app-row intro" style="--d:4">
+        <span class="app-label">{esc(L["app_label"])}</span>
+        <div class="app-btns">
+          <a class="btn btn--app" href="{APPSTORE}" rel="noopener">{I.APPLE} App Store</a>
+          <a class="btn btn--app" href="{PLAY}" rel="noopener">{I.ANDROID} Google Play</a>
+          <a class="btn btn--app" href="{WEBAPP}">{I.GLOBE} web.tymex.it</a>
+        </div>
+      </div>
     </div>
     <div class="hero-visual intro" style="--d:2">
       <div class="phone phone--a" data-parallax="0.05"><img src="/img/app-calendario.webp" width="600" height="1233" alt="{esc(L["alt_a"])}" fetchpriority="high"></div>

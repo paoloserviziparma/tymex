@@ -127,6 +127,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/glossario-timesheet/"/>
   </url>
   <url>
+    <loc>https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/time-tracking-employee-psychology/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/"/>
+  </url>
+  <url>
     <loc>https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/</loc>
     <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/"/>
@@ -146,6 +153,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/blog/time-tracking-employee-psychology/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/time-tracking-employee-psychology/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/</loc>

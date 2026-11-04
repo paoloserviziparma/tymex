@@ -227,6 +227,11 @@ def render_markup(text):
 MONTHS = {"it": ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],
           "en": ["January","February","March","April","May","June","July","August","September","October","November","December"]}
 
+def reading_time(html_text, lang):
+    words = len(re.findall(r"\w+", re.sub(r"<[^>]+>", " ", html_text)))
+    m = max(1, -(-words // 220))
+    return f"{m} min di lettura" if lang == "it" else f"{m} min read"
+
 def fmt_date(d, lang):
     m = MONTHS[lang][int(d[5:7]) - 1]
     return f"{int(d[8:])} {m} {d[:4]}"
@@ -234,13 +239,13 @@ def fmt_date(d, lang):
 def blog_en(page):
     from content_en_blog import POSTS_EN
     cards = ""
-    for P in POSTS_EN:
+    for P in sorted(POSTS_EN, key=lambda x: x["date"], reverse=True):
         url = f"/en/blog/{P['slug']}/"
         alts = {"it": f"/blog/{P['it_slug']}/", "en": url}
         d = P["date"]; dd = fmt_date(d, "en")
         crumbs = [("Blog", "/en/blog/"), (P["title"], url)]
         body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("en", crumbs)}
-<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · Tymex</p></div></section>
+<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · {reading_time(render_markup(P["body"]), "en")} · Tymex</p></div></section>
 <article class="section" style="padding-top:12px"><div class="wrap"><div class="prose">
 <figure class="reveal"><img src="{P["img"]}" width="1200" height="800" alt="{esc(P["alt"])}"></figure>
 {render_markup(P["body"])}
@@ -261,16 +266,17 @@ def blog_en(page):
 
 def blog(page):
     from content_en_blog import POSTS_EN
+    from content_blog import POSTS_IT_NEW
     en_by_it = {P["it_slug"]: P["slug"] for P in POSTS_EN}
     cards = ""
-    for P in POSTS:
+    for P in sorted(POSTS + POSTS_IT_NEW, key=lambda x: x["date"], reverse=True):
         url = f"/blog/{P['slug']}/"
         d = P["date"]; dd = fmt_date(d, "it")
         alts = {"it": url, "en": f"/en/blog/{en_by_it[P['slug']]}/"}
         crumbs = [("Blog", "/blog/"), (P["title"], url)]
-        content = render_blocks(LEG[P["key"]]["blocks"], P["stop"])
+        content = render_markup(P["body"]) if "body" in P else render_blocks(LEG[P["key"]]["blocks"], P["stop"])
         body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("it", crumbs)}
-<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · Tymex</p></div></section>
+<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · {reading_time(content, "it")} · Tymex</p></div></section>
 <article class="section" style="padding-top:12px"><div class="wrap"><div class="prose">
 <figure class="reveal"><img src="{P["img"]}" width="1200" height="800" alt="{esc(P["alt"])}"></figure>
 {content}

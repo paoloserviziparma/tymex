@@ -5,6 +5,52 @@ l'intestazione), "= " formula, ogni altra riga è un paragrafo.
 """
 
 POSTS_EN = [
+ dict(slug="time-tracking-employee-psychology", it_slug="rilevazione-ore-risvolti-psicologici-dipendenti",
+      title="Time tracking and employees: the psychological side and how to handle it",
+      seo="Time tracking and employees: the psychological side | Tymex",
+      desc="Why time tracking can make employees wary, what concerns lie behind it and how to introduce it so it becomes a tool that works for everyone.",
+      date="2026-11-03", img="/img/blog-rilevazione-ore-psicologia.webp",
+      alt="Illustration: two team members with a speech bubble, a clock and a tick, in Tymex colours",
+      body="""## Why it's rarely discussed
+When a company introduces a time tracking system, attention almost always goes to the practical side: which software to choose, how to connect it to the ERP, how long it takes to get started. Far less is said about how the people who will log their work every day will experience it.
+Yet this is exactly where the project succeeds or fails. A timesheet filled in reluctantly, late or from memory produces unreliable data, and unreliable data is no use for controlling jobs.
+## The first reaction: "they want to keep tabs on me"
+The most common fear is feeling watched. Logging hours is seen as a way of measuring how much people work rather than what they work on. Those used to a certain autonomy may read it as a sign of distrust.
+This perception depends a lot on how the tool is introduced. If it arrives without explanation, perhaps after a tense period, it's natural to see it as a form of control.
+## The concerns people don't voice
+Alongside the fear of control there are subtler worries:
+- being judged on the number of hours rather than the quality of the work
+- having to justify breaks, setbacks or tasks that are hard to classify
+- having their work compared with colleagues'
+- wasting time on paperwork instead of real work
+- not knowing who will see the data and how it will be used
+None of these concerns is unreasonable. Ignoring them is the quickest way to get poorly filled timesheets.
+## The weight of the "how": simplicity and effort
+Then there is a very practical issue: effort. If logging hours takes time, complicated screens or reconstructing on Friday what you did on Monday, it becomes a chore to put off. And the longer it's put off, the more it relies on memory, with less accurate data and more frustration.
+A fast tool, used on the phone as soon as the work is done, lightens that load. When entering an activity takes a few seconds, it stops feeling like an extra task.
+## Explain the why before the how
+People accept a rule more readily when they understand its purpose. Before introducing time tracking, it's worth making clear:
+- what the data is for: knowing what jobs really cost, quoting better, sharing out the workload
+- what it is not for: ranking who works more or less
+- who will see the information and in how much detail
+- how the results will be used, including for the team's benefit
+An example helps: if a job turns out to be underestimated, the data is used to review the quote with the customer, not to find someone to blame.
+## Involve the team
+The people who log hours know better than anyone which activities are hard to classify. Involving some of them in defining services and jobs makes the system fit reality and makes the team part of the project rather than on the receiving end of a decision taken elsewhere.
+A trial period, with the chance to report problems and suggest changes, also reduces initial resistance.
+## Give something back to the people filling it in
+A timesheet works better when it's useful to the person filling it in too. Seeing at a glance which days are complete and which are missing, finding what you did last week, having hard data to show that a job took longer than planned: these are real benefits for staff, not just for the company.
+When data becomes a way to defend one's work rather than question it, attitudes change.
+## Trust and clear rules
+Time tracking works in a climate of trust. A few simple rules help:
+- log hours every day, without worrying about minute-by-minute precision
+- discuss results using aggregate data
+- treat variances as problems to solve together
+- comply with the rules on privacy and remote monitoring, checking with your adviser how to inform employees
+## How Tymex helps
+Tymex is designed to make time tracking as light as possible: people log their own hours, from a smartphone or the web, in a few taps. The calendar shows straight away which days are complete, and a recurring entry can be duplicated with one tap. With roles, staff on the basic profile log and view their own entries, while team management is left to managers and administrators.
+## In short
+Technology is the easy part. What makes the difference is clear goals, a simple tool and the way the data is used. When people understand why they log their hours and get something back from it, time tracking stops being a form of control and becomes a shared working tool."""),
  dict(slug="timesheet-excel-pros-cons-alternatives", it_slug="timesheet-excel-vantaggi-limiti-alternative",
       title="Excel timesheets: pros, cons and alternatives for tracking hours worked",
       seo="Excel timesheets: pros, cons and alternatives | Tymex",

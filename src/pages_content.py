@@ -266,12 +266,41 @@ def fmt_date(d, lang):
     m = MONTHS[lang][int(d[5:7]) - 1]
     return f"{int(d[8:])} {m} {d[:4]}"
 
-def blog_en(page):
+def _today():
+    import build
+    return build.TODAY
+
+def published_it():
+    """Articoli italiani con data già arrivata, dal più recente."""
+    from content_blog import POSTS_IT_NEW
+    from content_blog_piano import POSTS_IT_PIANO
+    return sorted([P for P in POSTS + POSTS_IT_NEW + POSTS_IT_PIANO if P["date"] <= _today()], key=lambda x: x["date"], reverse=True)
+
+def published_en():
     from content_en_blog import POSTS_EN
+    from content_en_blog_piano import POSTS_EN_PIANO
+    return sorted([P for P in POSTS_EN + POSTS_EN_PIANO if P["date"] <= _today()], key=lambda x: x["date"], reverse=True)
+
+def write_llms():
+    """public/llms.txt da src/llms.txt, con l'elenco aggiornato degli articoli pubblicati."""
+    import build
+    src = open(os.path.join(os.path.dirname(__file__), "llms.txt"), encoding="utf-8").read()
+    it = "\n".join(f"- [{P['title']}](https://www.tymex.it/blog/{P['slug']}/): {P['desc']}" for P in published_it())
+    en = "\n".join(f"- [{P['title']}](https://www.tymex.it/en/blog/{P['slug']}/)" for P in published_en())
+    head, _, rest = src.partition("## Articoli del blog")
+    if not rest:
+        raise SystemExit("src/llms.txt: manca la sezione '## Articoli del blog'")
+    tail = rest[rest.index("## English"):]
+    out = head + "## Articoli del blog\n\n" + it + "\n\n" + tail.rstrip() + "\n\n## English articles\n\n" + en + "\n"
+    with open(os.path.join(build.OUT, "llms.txt"), "w", encoding="utf-8") as fh:
+        fh.write(out)
+
+def blog_en(page):
     cards = ""
-    for P in sorted(POSTS_EN, key=lambda x: x["date"], reverse=True):
+    for P in published_en():
         url = f"/en/blog/{P['slug']}/"
-        alts = {"it": f"/blog/{P['it_slug']}/", "en": url}
+        it_pub = {x["slug"] for x in published_it()}
+        alts = {"it": f"/blog/{P['it_slug']}/", "en": url} if P["it_slug"] in it_pub else {"en": url}
         d = P["date"]; dd = fmt_date(d, "en")
         crumbs = [("Blog", "/en/blog/"), (P["title"], url)]
         body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("en", crumbs)}
@@ -285,7 +314,7 @@ def blog_en(page):
         ld = {"@type": "BlogPosting", "headline": P["title"], "datePublished": d, "dateModified": d, "image": SITE + P["img"],
               "inLanguage": "en", "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
               "mainEntityOfPage": SITE + url, "description": P["desc"]}
-        page(url, "en", P["seo"], P["desc"], body, alts=alts, crumbs=crumbs, ld=[ld], og_type="article")
+        page(url, "en", P["seo"], P["desc"], body, alts=alts, crumbs=crumbs, ld=[ld], og_type="article", lastmod=d)
         cards += f'''<a class="post-card reveal" href="{url}"><img src="{P["img"]}" width="1200" height="800" alt="" loading="lazy">
 <div><p class="note"><time datetime="{d}">{dd}</time></p><h2 class="mt-s">{esc(P["title"])}</h2><p>{esc(P["desc"])}</p></div></a>'''
     body = hero("en", [("Blog", "/en/blog/")], "Blog", "Insights on time tracking and job management.",
@@ -296,14 +325,12 @@ def blog_en(page):
          body, alts={"it": "/blog/", "en": "/en/blog/"}, crumbs=[("Blog", "/en/blog/")], ld=[{"@type": "Blog", "name": "Tymex blog", "inLanguage": "en"}])
 
 def blog(page):
-    from content_en_blog import POSTS_EN
-    from content_blog import POSTS_IT_NEW
-    en_by_it = {P["it_slug"]: P["slug"] for P in POSTS_EN}
+    en_by_it = {P["it_slug"]: P["slug"] for P in published_en()}
     cards = ""
-    for P in sorted(POSTS + POSTS_IT_NEW, key=lambda x: x["date"], reverse=True):
+    for P in published_it():
         url = f"/blog/{P['slug']}/"
         d = P["date"]; dd = fmt_date(d, "it")
-        alts = {"it": url, "en": f"/en/blog/{en_by_it[P['slug']]}/"}
+        alts = {"it": url, "en": f"/en/blog/{en_by_it[P['slug']]}/"} if P["slug"] in en_by_it else {"it": url}
         crumbs = [("Blog", "/blog/"), (P["title"], url)]
         content = render_markup(P["body"]) if "body" in P else render_blocks(LEG[P["key"]]["blocks"], P["stop"])
         body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("it", crumbs)}
@@ -317,7 +344,7 @@ def blog(page):
         ld = {"@type": "BlogPosting", "headline": P["title"], "datePublished": d, "dateModified": d, "image": SITE + P["img"],
               "inLanguage": "it", "author": {"@id": SITE + "/#org"}, "publisher": {"@id": SITE + "/#org"},
               "mainEntityOfPage": SITE + url, "description": P["desc"]}
-        page(url, "it", P["seo"], P["desc"], body, alts=alts, crumbs=crumbs, ld=[ld], og_type="article")
+        page(url, "it", P["seo"], P["desc"], body, alts=alts, crumbs=crumbs, ld=[ld], og_type="article", lastmod=d)
         excerpt = P["desc"]
         cards += f'''<a class="post-card reveal" href="{url}"><img src="{P["img"]}" width="1200" height="800" alt="" loading="lazy">
 <div><p class="note"><time datetime="{d}">{dd}</time></p><h2 class="mt-s">{esc(P["title"])}</h2><p>{esc(excerpt)}</p></div></a>'''
@@ -361,3 +388,4 @@ def build(page):
     blog(page)
     blog_en(page)
     versions(page)
+    write_llms()

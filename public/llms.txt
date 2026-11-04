@@ -28,9 +28,9 @@
 
 ## Articoli del blog
 
-- [Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)](https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/): perché la rilevazione ore preoccupa i dipendenti e come presentarla.
-- [Timesheet Excel: vantaggi, limiti e alternative](https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/)
-- [Come calcolare la marginalità di una commessa](https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/): formula ed esempio numerico.
+- [Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)](https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/): Perché la rilevazione delle ore spaventa i dipendenti, cosa succede nella loro testa e quali parole usare per presentarla, così diventa uno strumento utile a tutti.
+- [Timesheet Excel: vantaggi, limiti e alternative per la gestione delle ore lavorate](https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/): Vantaggi e limiti dei timesheet Excel e perché sempre più aziende scelgono un software dedicato per rilevare le ore, controllare le commesse e migliorarne la redditività.
+- [Come calcolare la marginalità di una commessa: guida completa](https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/): Come si calcola la marginalità di una commessa, con formula ed esempio pratico: controllare costi e ore lavorate per migliorare la redditività dei progetti.
 
 ## English
 
@@ -38,3 +38,9 @@
 - [FAQ (EN)](https://www.tymex.it/en/faq/)
 - [Timesheet glossary (EN)](https://www.tymex.it/en/timesheet-glossary/)
 - [Blog (EN)](https://www.tymex.it/en/blog/)
+
+## English articles
+
+- [Time tracking: what your employees really think (and which words to use)](https://www.tymex.it/en/blog/time-tracking-employee-psychology/)
+- [Excel timesheets: pros, cons and alternatives for tracking hours worked](https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/)
+- [How to calculate a job's profit margin: a complete guide](https://www.tymex.it/en/blog/how-to-calculate-job-profit-margin/)

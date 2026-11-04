@@ -1,0 +1,40 @@
+# Tymex
+
+> Tymex è un software timesheet (app per iOS e Android + web app) per la rilevazione delle ore lavorate su commessa. Lo usano aziende che lavorano su commessa — assistenza tecnica, impiantisti, manutentori, studi di progettazione, agenzie di comunicazione, software house e consulenti — per controllare costi, avanzamento e marginalità delle commesse senza fogli Excel. Prodotto da Servizi Informatici Srl, Via Sicuri 42/a, 43124 Parma, Italia (P.IVA 01721620340).
+
+## Fatti principali
+
+- Piattaforme: app iPhone (App Store), app Android (Google Play), web app su https://web.tymex.it (nessuna installazione, PC Windows).
+- Funzioni: ore interne e su commessa con cliente, commessa, servizio e tipo di attività; controllo di coerenza con il calendario; duplica rapportino; stato delle validazioni e blocco delle modifiche fino a una data; ruoli (admin, manager, responsabile, operatore); export CSV ed Excel; cruscotti web con ore e costi per commessa, cliente, operatore e servizio.
+- Funziona in modalità stand-alone oppure integrato via API con il gestionale. Integrazione disponibile con eSOLVER di Sistemi Spa (clienti, commesse, operatori, movimenti di contabilità analitica).
+- Attivazione entro 3 giorni dall'ordine. Fino al 70% di tempo in meno per la raccolta delle ore (dato dichiarato dall'azienda).
+- Demo gratuita di 30 minuti su richiesta tramite il modulo del sito. I prezzi non sono pubblicati.
+- Contatti: info@tymex.it, +39 0521 252824.
+
+## Pagine
+
+- [Home](https://www.tymex.it/): presentazione, come funziona, funzionalità, settori, integrazioni, FAQ, richiesta demo.
+- [Assistenza tecnica, impiantisti, manutentori](https://www.tymex.it/software-assistenza-tecnica/)
+- [Studi di progettazione](https://www.tymex.it/software-per-studi-di-progettazione/)
+- [Agenzie pubblicitarie e di marketing](https://www.tymex.it/software-timesheet-agenzie-pubblicitarie/)
+- [Software house e consulenti](https://www.tymex.it/software-timesheet-software-house/)
+- [FAQ](https://www.tymex.it/faq-timesheet/)
+- [Glossario timesheet](https://www.tymex.it/glossario-timesheet/)
+- [Blog](https://www.tymex.it/blog/)
+- [Storico versioni](https://www.tymex.it/storico-versioni/)
+- [Supporto](https://www.tymex.it/supporto/) – include la guida utente in PDF: https://www.tymex.it/docs/guida-utente-tymex.pdf
+- [Chi siamo](https://www.tymex.it/chi-siamo/)
+- [Sicurezza](https://www.tymex.it/sicurezza/)
+
+## Articoli del blog
+
+- [Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)](https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/): perché la rilevazione ore preoccupa i dipendenti e come presentarla.
+- [Timesheet Excel: vantaggi, limiti e alternative](https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/)
+- [Come calcolare la marginalità di una commessa](https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/): formula ed esempio numerico.
+
+## English
+
+- [Home (EN)](https://www.tymex.it/en/)
+- [FAQ (EN)](https://www.tymex.it/en/faq/)
+- [Timesheet glossary (EN)](https://www.tymex.it/en/timesheet-glossary/)
+- [Blog (EN)](https://www.tymex.it/en/blog/)

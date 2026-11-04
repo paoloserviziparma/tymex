@@ -19,7 +19,10 @@ import icons as I  # noqa: E402
 
 PAGES = []  # (path, html)
 SITEMAP = []  # dict(path, alts, lastmod)
-TODAY = date.today().isoformat()
+from datetime import datetime
+from zoneinfo import ZoneInfo
+TODAY = os.environ.get("TYMEX_OGGI") or datetime.now(ZoneInfo("Europe/Rome")).date().isoformat()  # oggi in Italia (TYMEX_OGGI=AAAA-MM-GG per provare una data)
+SITE_UPDATED = "2026-11-04"  # data di ultimo aggiornamento delle pagine fisse (sitemap)
 
 def esc(s):
     return html.escape(s, quote=True)
@@ -159,7 +162,7 @@ def breadcrumbs_ld(lang, crumbs):
     return {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(items)]}
 
-def page(path, lang, title, desc, body, alts=None, crumbs=None, ld=None, og_image="/img/og-tymex.png",
+def page(path, lang, title, desc, body, alts=None, crumbs=None, ld=None, og_image="/img/og-tymex.png", lastmod=None,
          noindex=False, current=None, og_type="website", sitemap=True):
     """alts: {'it': '/x/', 'en': '/en/x/'} incluse la pagina stessa."""
     alts = alts or {lang: path}
@@ -214,7 +217,7 @@ def page(path, lang, title, desc, body, alts=None, crumbs=None, ld=None, og_imag
 '''
     PAGES.append((path, doc))
     if sitemap and not noindex:
-        SITEMAP.append({"path": path, "alts": alts if len(alts) > 1 else None})
+        SITEMAP.append({"path": path, "alts": alts if len(alts) > 1 else None, "lastmod": lastmod or SITE_UPDATED})
 
 def write_all():
     for path, doc in PAGES:
@@ -232,7 +235,7 @@ def write_all():
         if s["alts"]:
             alt = "".join(f'\n    <xhtml:link rel="alternate" hreflang="{l}" href="{SITE}{p}"/>' for l, p in s["alts"].items())
             alt += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{s["alts"].get("it", s["path"])}"/>'
-        rows.append(f'  <url>\n    <loc>{SITE}{s["path"]}</loc>\n    <lastmod>{TODAY}</lastmod>{alt}\n  </url>')
+        rows.append(f'  <url>\n    <loc>{SITE}{s["path"]}</loc>\n    <lastmod>{s["lastmod"]}</lastmod>{alt}\n  </url>')
     with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
                  'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(rows) + "\n</urlset>\n")
@@ -250,7 +253,7 @@ def main():
     # pulizia delle pagine generate (immagini e font restano)
     for name in os.listdir(OUT):
         p = os.path.join(OUT, name)
-        if name in ("img", "fonts", "docs", "llms.txt", "_redirects"):
+        if name in ("img", "fonts", "docs", "_redirects"):
             continue
         if os.path.isdir(p):
             shutil.rmtree(p)

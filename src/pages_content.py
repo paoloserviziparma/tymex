@@ -227,6 +227,22 @@ def render_markup(text):
 MONTHS = {"it": ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],
           "en": ["January","February","March","April","May","June","July","August","September","October","November","December"]}
 
+def share_block(url, title, lang):
+    """Pulsanti di condivisione: semplici link, nessuno script o cookie di terze parti."""
+    from urllib.parse import quote
+    u = quote(SITE + url, safe="")
+    fb = f"https://www.facebook.com/sharer/sharer.php?u={u}"
+    li = f"https://www.linkedin.com/sharing/share-offsite/?url={u}"
+    lab = "Condividi l'articolo" if lang == "it" else "Share this article"
+    on = "su" if lang == "it" else "on"
+    nw = " (si apre in una nuova finestra)" if lang == "it" else " (opens in a new window)"
+    fb_ico = '<svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z"/></svg>'
+    li_ico = '<svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 8.8H3.6V20h3.3zM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.4 13.6c0-3-1.6-5-4.4-5-1.4 0-2.4.8-2.8 1.5V8.8H10V20h3.3v-5.6c0-1.5.3-2.9 2.1-2.9s1.8 1.7 1.8 3V20h3.3z"/></svg>'
+    return (f'<div class="share"><p class="share-title">{lab}</p><div class="btn-row">'
+            f'<a class="btn btn--share" href="{fb}" target="_blank" rel="noopener" aria-label="{lab} {on} Facebook{nw}">{fb_ico}Facebook</a>'
+            f'<a class="btn btn--share" href="{li}" target="_blank" rel="noopener" aria-label="{lab} {on} LinkedIn{nw}">{li_ico}LinkedIn</a>'
+            f'</div></div>')
+
 def reading_time(html_text, lang):
     words = len(re.findall(r"\w+", re.sub(r"<[^>]+>", " ", html_text)))
     m = max(1, -(-words // 220))
@@ -249,6 +265,7 @@ def blog_en(page):
 <article class="section" style="padding-top:12px"><div class="wrap"><div class="prose">
 <figure class="reveal"><img src="{P["img"]}" width="1200" height="800" alt="{esc(P["alt"])}"></figure>
 {render_markup(P["body"])}
+{share_block(url, P["title"], "en")}
 <div class="callout"><strong>Read more:</strong> <a href="/en/faq/">Timesheet FAQ</a> · <a href="/en/timesheet-glossary/">Timesheet glossary</a> · <a href="/en/">Tymex, job time tracking</a></div>
 </div></div></article>''' + cta_band("en")
         ld = {"@type": "BlogPosting", "headline": P["title"], "datePublished": d, "dateModified": d, "image": SITE + P["img"],
@@ -280,6 +297,7 @@ def blog(page):
 <article class="section" style="padding-top:12px"><div class="wrap"><div class="prose">
 <figure class="reveal"><img src="{P["img"]}" width="1200" height="800" alt="{esc(P["alt"])}"></figure>
 {content}
+{share_block(url, P["title"], "it")}
 <div class="callout"><strong>Approfondisci:</strong> <a href="/faq-timesheet/">FAQ timesheet</a> · <a href="/glossario-timesheet/">Glossario timesheet</a> · <a href="/">Tymex, rilevazione ore su commessa</a></div>
 </div></div></article>''' + cta_band("it")
         ld = {"@type": "BlogPosting", "headline": P["title"], "datePublished": d, "dateModified": d, "image": SITE + P["img"],

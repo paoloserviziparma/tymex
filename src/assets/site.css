@@ -296,6 +296,11 @@ main{padding-top:var(--header-h)}
 .gloss div{border:1.5px solid var(--line);border-radius:18px;padding:22px}
 .gloss dt{font-weight:800;color:var(--ink);font-size:17px;margin-bottom:6px}
 .gloss dd{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+.share{margin:40px 0 24px;padding-top:28px;border-top:1.5px solid var(--line)}
+.share-title{font-weight:800;color:var(--ink);font-size:16px;margin:0 0 14px}
+.btn--share{background:#fff;color:var(--ink);border-color:var(--line-2);font-size:15px;min-height:46px;padding:10px 22px;text-decoration:none}
+.btn--share:hover{border-color:var(--primary);color:var(--primary)}
+.prose .btn--share{overflow-wrap:normal}
 .post-meta{font-size:14px;color:var(--muted-2);margin-top:18px}
 .post-cards{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
 .post-card{display:flex;flex-direction:column;border:1.5px solid var(--line);border-radius:24px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .25s,box-shadow .25s}

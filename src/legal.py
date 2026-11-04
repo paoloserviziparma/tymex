@@ -87,9 +87,11 @@ NETLIFY_IT = ("Il sito è ospitato su Netlify (Netlify, Inc., Stati Uniti), che 
     "Contrattuali Standard. A questo link è possibile consultare l'Accordo sul trattamento dei dati: "
     "https://www.netlify.com/pdf/netlify-dpa.pdf")
 NETLIFY_IT_2 = "A questo link è invece possibile consultare la policy sui dati personali: https://www.netlify.com/privacy/"
-EXT_IT = ("SERVIZI ESTERNI I pulsanti e i link verso App Store, Google Play, YouTube, LinkedIn, Google Maps e la web app "
+EXT_IT = ("SERVIZI ESTERNI I pulsanti e i link verso App Store, Google Play, YouTube, LinkedIn, Facebook, Google Maps e la web app "
     "web.tymex.it aprono servizi di terze parti, soggetti alle rispettive informative. I video presenti nel sito vengono "
-    "caricati da YouTube in modalità privacy avanzata (youtube-nocookie.com) solo dopo il clic dell'utente sull'anteprima.")
+    "caricati da YouTube in modalità privacy avanzata (youtube-nocookie.com) solo dopo il clic dell'utente sull'anteprima. "
+    "I pulsanti per condividere gli articoli su Facebook e LinkedIn sono semplici link: questi servizi ricevono dati solo "
+    "se l'utente li usa.")
 
 NETLIFY_EN = ("The site is hosted on Netlify (Netlify, Inc., United States), which processes data as a data processor for "
     "hosting the site, storing navigation data (server logs) and receiving requests sent through the contact form (Netlify "
@@ -99,9 +101,11 @@ NETLIFY_EN = ("The site is hosted on Netlify (Netlify, Inc., United States), whi
     "European Commission, in compliance with the Standard Contractual Clauses. At this link you can consult the Agreement "
     "on data processing: https://www.netlify.com/pdf/netlify-dpa.pdf")
 NETLIFY_EN_2 = "At this link it is possible to consult the personal data policy: https://www.netlify.com/privacy/"
-EXT_EN = ("EXTERNAL SERVICES Buttons and links to the App Store, Google Play, YouTube, LinkedIn, Google Maps and the web app "
+EXT_EN = ("EXTERNAL SERVICES Buttons and links to the App Store, Google Play, YouTube, LinkedIn, Facebook, Google Maps and the web app "
     "web.tymex.it open third-party services, which are subject to their own privacy notices. Videos on the site are loaded "
-    "from YouTube in privacy-enhanced mode (youtube-nocookie.com) only after the user clicks the preview.")
+    "from YouTube in privacy-enhanced mode (youtube-nocookie.com) only after the user clicks the preview. "
+    "The buttons for sharing articles on Facebook and LinkedIn are plain links: these services receive data only "
+    "if the user clicks them.")
 
 def privacy_it():
     b = blocks("/privacy")
@@ -156,7 +160,7 @@ NOCOOKIE_IT = [
     "(vedi la privacy policy) senza installare nulla sul dispositivo dell'utente.",
     "Servizi esterni: i video vengono caricati da YouTube in modalità privacy avanzata (youtube-nocookie.com) solo se l'utente "
     "fa clic sull'anteprima; da quel momento YouTube può utilizzare cookie o tecnologie simili secondo la propria informativa "
-    "(https://policies.google.com/privacy). I link verso App Store, Google Play, LinkedIn, Google Maps e la web app "
+    "(https://policies.google.com/privacy). I link verso App Store, Google Play, LinkedIn, Facebook, Google Maps e la web app "
     "web.tymex.it portano a servizi di terzi, soggetti alle rispettive cookie policy."]
 NOCOOKIE_EN = [
     "This site does not use cookies, whether technical, statistical or profiling, and does not use any other tracking tools. "
@@ -165,7 +169,7 @@ NOCOOKIE_EN = [
     "(see the privacy policy) without installing anything on the user's device.",
     "External services: videos are loaded from YouTube in privacy-enhanced mode (youtube-nocookie.com) only if the user "
     "clicks the preview; from that moment YouTube may use cookies or similar technologies under its own policy "
-    "(https://policies.google.com/privacy). Links to the App Store, Google Play, LinkedIn, Google Maps and the web app "
+    "(https://policies.google.com/privacy). Links to the App Store, Google Play, LinkedIn, Facebook, Google Maps and the web app "
     "web.tymex.it lead to third-party services, which are subject to their own cookie policies."]
 
 def cookie(lang):

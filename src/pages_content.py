@@ -187,13 +187,17 @@ def render_blocks(blocks, stop):
     close()
     return "\n".join(out)
 
-def render_markup(text):
+def render_markup(text, lang="it"):
     """Testo nel formato di content_en_blog.py -> HTML."""
     out, mode, rows = [], None, []
     def close():
         nonlocal mode, rows
         if mode == "ul":
             out.append("</ul>")
+        elif mode == "tldr":
+            out.append("</ul></aside>")
+        elif mode == "quote":
+            out.append("</blockquote>")
         elif mode == "table":
             head, *rest = rows
             out.append("<table><thead><tr>" + "".join(f'<th scope="col">{esc(c)}</th>' for c in head) + "</tr></thead><tbody>"
@@ -208,6 +212,16 @@ def render_markup(text):
             if mode != "ul":
                 close(); out.append("<ul>"); mode = "ul"
             out.append(f"<li>{esc(line[2:])}</li>"); continue
+        if line.startswith("* "):
+            if mode != "tldr":
+                close(); mode = "tldr"
+                out.append(f'<aside class="tldr"><p class="tldr-title">{"In breve" if lang == "it" else "In short"}</p><ul>')
+            out.append(f"<li>{esc(line[2:])}</li>"); continue
+        if line.startswith("> "):
+            close(); mode = "quote"
+            out.append(f'<blockquote class="quote"><p>«{esc(line[2:])}»</p>' if lang == "it" else f'<blockquote class="quote"><p>“{esc(line[2:])}”</p>'); continue
+        if line.startswith("~ ") and mode == "quote":
+            out.append(f"<footer>— <cite>{esc(line[2:])}</cite></footer>"); close(); continue
         if line.startswith("|"):
             if mode != "table":
                 close(); mode = "table"
@@ -261,10 +275,10 @@ def blog_en(page):
         d = P["date"]; dd = fmt_date(d, "en")
         crumbs = [("Blog", "/en/blog/"), (P["title"], url)]
         body = f'''<section class="page-hero"><div class="wrap" style="max-width:860px">{crumbs_html("en", crumbs)}
-<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · {reading_time(render_markup(P["body"]), "en")} · Tymex</p></div></section>
+<h1 class="intro">{esc(P["title"])}</h1><p class="post-meta intro" style="--d:1"><time datetime="{d}">{dd}</time> · {reading_time(render_markup(P["body"], "en"), "en")} · Tymex</p></div></section>
 <article class="section" style="padding-top:12px"><div class="wrap"><div class="prose">
 <figure class="reveal"><img src="{P["img"]}" width="1200" height="800" alt="{esc(P["alt"])}"></figure>
-{render_markup(P["body"])}
+{render_markup(P["body"], "en")}
 {share_block(url, P["title"], "en")}
 <div class="callout"><strong>Read more:</strong> <a href="/en/faq/">Timesheet FAQ</a> · <a href="/en/timesheet-glossary/">Timesheet glossary</a> · <a href="/en/">Tymex, job time tracking</a></div>
 </div></div></article>''' + cta_band("en")

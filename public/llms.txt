@@ -26,6 +26,12 @@
 - [Chi siamo](https://www.tymex.it/chi-siamo/)
 - [Sicurezza](https://www.tymex.it/sicurezza/)
 
+## Articoli del blog
+
+- [Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)](https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/): perché la rilevazione ore preoccupa i dipendenti e come presentarla.
+- [Timesheet Excel: vantaggi, limiti e alternative](https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/)
+- [Come calcolare la marginalità di una commessa](https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/): formula ed esempio numerico.
+
 ## English
 
 - [Home (EN)](https://www.tymex.it/en/)

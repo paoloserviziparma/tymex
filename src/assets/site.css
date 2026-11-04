@@ -296,6 +296,12 @@ main{padding-top:var(--header-h)}
 .gloss div{border:1.5px solid var(--line);border-radius:18px;padding:22px}
 .gloss dt{font-weight:800;color:var(--ink);font-size:17px;margin-bottom:6px}
 .gloss dd{margin:0;color:var(--muted);font-size:15px;line-height:1.6}
+.tldr{background:var(--tint);border-radius:20px;padding:22px 26px;margin:0 0 32px}
+.tldr-title{font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:13px;margin:0 0 8px !important}
+.tldr ul{margin:0;padding-left:20px}.tldr li{margin:6px 0;color:var(--ink)}
+.quote{margin:30px 0;padding:6px 0 6px 26px;border-left:5px solid var(--primary)}
+.quote p{font-size:clamp(20px,2.2vw,25px);font-weight:700;line-height:1.4;color:var(--ink);margin:0 0 10px}
+.quote footer{font-size:15px;color:var(--muted-2)}.quote cite{font-style:normal;font-weight:600}
 .share{margin:40px 0 24px;padding-top:28px;border-top:1.5px solid var(--line)}
 .share-title{font-weight:800;color:var(--ink);font-size:16px;margin:0 0 14px}
 .btn--share{background:#fff;color:var(--ink);border-color:var(--line-2);font-size:15px;min-height:46px;padding:10px 22px;text-decoration:none}

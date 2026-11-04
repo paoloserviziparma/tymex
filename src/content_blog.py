@@ -2,54 +2,63 @@
 
 Per aggiungere un articolo: copia un blocco, cambia i campi e il testo, metti la copertina in public/img/,
 aggiungi la versione inglese in content_en_blog.py (stesso it_slug) e lancia python3 src/build.py.
-Formato del testo: "## " titolo, "### " sottotitolo, "- " elenco, "| a | b |" tabella, "= " formula.
+Formato del testo: "## " titolo, "### " sottotitolo, "- " elenco, "| a | b |" tabella, "= " formula,
+"* " riquadro In breve, "> " citazione, "~ " autore della citazione (subito dopo).
 """
 
 POSTS_IT_NEW = [
  dict(slug="rilevazione-ore-risvolti-psicologici-dipendenti",
-      title="Rilevazione ore e dipendenti: i risvolti psicologici e come gestirli",
-      seo="Rilevazione ore e dipendenti: i risvolti psicologici | Tymex",
-      desc="Perché la rilevazione delle ore può creare diffidenza nei dipendenti, quali timori nasconde e come introdurla perché diventi uno strumento utile a tutti.",
+      title="Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)",
+      seo="Rilevazione ore e dipendenti: cosa pensano davvero | Tymex",
+      desc="Perché la rilevazione delle ore spaventa i dipendenti, cosa succede nella loro testa e quali parole usare per presentarla, così diventa uno strumento utile a tutti.",
       date="2026-11-03", img="/img/blog-rilevazione-ore-psicologia.webp",
       alt="Illustrazione: due persone del team con un fumetto, un orologio e un segno di spunta, nei colori di Tymex",
-      body="""## Perché se ne parla poco
-Quando un'azienda introduce un sistema per rilevare le ore, l'attenzione va quasi sempre agli aspetti pratici: quale software scegliere, come collegarlo al gestionale, quanto tempo serve per partire. Si parla molto meno di come lo vivranno le persone che ogni giorno dovranno registrare le proprie attività.
-Eppure è proprio qui che si decide il successo del progetto. Un timesheet compilato con fastidio, in ritardo o a memoria produce dati poco affidabili, e i dati poco affidabili non servono a controllare le commesse.
-## La prima reazione: «mi vogliono controllare»
-La paura più comune è quella di sentirsi sorvegliati. Registrare le ore viene percepito come un modo per misurare quanto si lavora, invece che su cosa si lavora. Chi ha sempre avuto una certa autonomia può viverlo come un segnale di sfiducia.
-Questa percezione dipende molto da come lo strumento viene presentato. Se arriva senza spiegazioni, magari dopo un periodo di tensione, è naturale leggerlo come un controllo.
-## Le preoccupazioni meno dichiarate
-Accanto alla paura del controllo ci sono timori più sottili:
+      body="""* La rilevazione ore spaventa quando viene percepita come un controllo, non come uno strumento.
+* Le parole con cui la presenti contano quanto il software che scegli.
+* Funziona se è veloce, se ha uno scopo chiaro e se restituisce qualcosa a chi la compila.
+## Facciamo un esperimento
+Immagina di entrare in riunione e dire al tuo team: «Da lunedì registriamo le ore». Fermati un secondo. Cosa sta succedendo nella testa delle persone sedute davanti a te?
+Ti do un indizio: non stanno pensando alla marginalità delle commesse. Stanno pensando «Non si fidano di me». Oppure «Adesso mi contano anche i minuti della pausa caffè».
+Non è cattiveria. È il cervello che fa il suo lavoro: davanti a una novità ambigua, si prepara al peggio.
+## Non sono i fatti, sono i giudizi
+Quasi duemila anni fa Epitteto l'aveva già capito benissimo.
+> Non sono i fatti in sé a turbare gli uomini, ma i giudizi che gli uomini formulano sui fatti.
+~ Epitteto, Manuale, 5
+La rilevazione ore, di per sé, è neutra. È un elenco di attività e di numeri. Quello che la rende accettabile o insopportabile è il giudizio che le persone ci costruiscono sopra. E quel giudizio dipende, in buona parte, da come gliela racconti.
+## Le paure che nessuno dice ad alta voce
+Accanto al grande timore del controllo ce ne sono di più piccoli, che in riunione non arrivano quasi mai:
 - essere giudicati sulla quantità di ore e non sulla qualità del lavoro
-- dover giustificare pause, imprevisti o attività difficili da classificare
-- vedere il proprio lavoro confrontato con quello dei colleghi
+- dover giustificare pause, imprevisti, attività che non stanno in nessuna casella
+- essere confrontati con i colleghi
 - perdere tempo in burocrazia invece che nel lavoro vero
-- non sapere chi vedrà i dati e come verranno usati
-Nessuna di queste preoccupazioni è irragionevole. Ignorarle è il modo più rapido per ottenere timesheet compilati male.
-## Il peso del «come»: semplicità e fatica
-C'è poi un aspetto molto concreto: la fatica. Se registrare le ore richiede tempo, schermate complicate o la ricostruzione a fine settimana di cosa si è fatto il lunedì, la rilevazione diventa un'incombenza da rimandare. E più si rimanda, più ci si affida alla memoria, con dati meno precisi e più frustrazione.
-Uno strumento veloce, che si usa dal telefono nel momento in cui il lavoro finisce, riduce questo carico. Quando inserire un'attività richiede pochi secondi, smette di essere percepito come un compito in più.
-## Spiegare il perché, prima del come
-Le persone accettano meglio una regola quando ne capiscono lo scopo. Prima di introdurre la rilevazione ore vale la pena chiarire:
-- a cosa servono i dati: capire quanto costano davvero le commesse, preventivare meglio, distribuire il carico di lavoro
-- cosa non si vuole fare: stilare classifiche di chi lavora di più o di meno
-- chi vedrà le informazioni e con quale livello di dettaglio
-- come verranno usati i risultati, anche a vantaggio del team
-Un esempio aiuta: se una commessa risulta sottostimata, il dato serve a rivedere il preventivo con il cliente, non a cercare un colpevole.
-## Coinvolgere il team
-Chi registra le ore sa meglio di chiunque altro quali attività sono difficili da classificare. Coinvolgere alcune persone nella definizione di servizi e commesse rende il sistema più aderente alla realtà e fa sentire il team parte del progetto, non destinatario di una decisione presa altrove.
-Anche un periodo di prova, con la possibilità di segnalare problemi e proporre modifiche, riduce la resistenza iniziale.
-## Restituire valore a chi compila
-Un timesheet funziona meglio quando è utile anche a chi lo compila. Vedere a colpo d'occhio le giornate complete e quelle mancanti, ritrovare cosa si è fatto la settimana prima, avere dati concreti per mostrare che una commessa ha richiesto più tempo del previsto: sono vantaggi reali per chi lavora, non solo per l'azienda.
-Quando i dati diventano un argomento per difendere il proprio lavoro, e non per metterlo in discussione, l'atteggiamento cambia.
-## Fiducia e regole chiare
-La rilevazione ore funziona in un clima di fiducia. Qualche regola semplice aiuta:
-- registrare le ore ogni giorno, senza l'ansia della precisione al minuto
-- parlare dei risultati usando dati aggregati
-- discutere gli scostamenti come problemi da risolvere insieme
-- rispettare le norme su privacy e controlli a distanza, verificando con il proprio consulente come informare i dipendenti
+- non sapere chi vedrà i dati e che cosa ne farà
+Sono paure ragionevoli. Se le ignori non spariscono: si trasformano in timesheet compilati il venerdì sera, a memoria.
+## Cambia le parole, cambia la percezione
+Ecco il punto. Le parole che usi creano la cornice dentro cui le persone leggono tutto il resto.
+Confronta queste due frasi:
+- «Da lunedì controlliamo le ore di tutti.»
+- «Da lunedì iniziamo a capire quanto ci costano davvero le commesse, così smettiamo di lavorare in perdita senza accorgercene.»
+Stesso strumento. Effetto opposto. Nella prima c'è un controllore e un controllato. Nella seconda c'è una squadra con un obiettivo comune.
+Qualche sostituzione che funziona:
+- non «controllo», ma «visibilità»
+- non «verifica delle ore», ma «costo reale delle commesse»
+- non «chi ha lavorato meno», ma «quale commessa abbiamo sottostimato»
+## Il perché prima del come
+Le persone accettano una regola quando ne capiscono lo scopo. Prima di parlare di app e schermate, rispondi a tre domande:
+- a cosa servono i dati? A preventivare meglio, distribuire il carico di lavoro, difendere i margini
+- cosa non farai con quei dati? Classifiche, caccia al colpevole, sorveglianza
+- chi li vedrà, e con quale dettaglio?
+Poi mantieni la promessa. Se una commessa sfora, il dato serve a rivedere il preventivo con il cliente, non a cercare chi ha sbagliato. Basta una sola volta in cui il dato viene usato contro qualcuno, e la fiducia se ne va.
+## La fatica conta più di quanto pensi
+Puoi avere le parole migliori del mondo, ma se compilare un rapportino richiede dieci minuti e tre schermate, nessuno lo farà volentieri. Il cervello odia la fatica inutile: la rimanda.
+Per questo lo strumento deve essere rapidissimo, usabile dal telefono nel momento esatto in cui il lavoro finisce. Pochi secondi, e via.
+## Restituisci qualcosa
+Un timesheet funziona davvero quando è utile anche a chi lo compila. Vedere a colpo d'occhio le giornate complete, ritrovare cosa hai fatto la settimana scorsa, avere numeri concreti per dire «questa commessa ha richiesto il doppio del previsto»: sono vantaggi per chi lavora, non solo per l'azienda.
+Quando i dati diventano un modo per difendere il proprio lavoro, invece che per metterlo in discussione, cambia tutto.
+## Due regole pratiche
+Chiedi di registrare le ore ogni giorno, senza l'ansia del minuto esatto. E verifica con il tuo consulente le norme su privacy e controlli a distanza, e come informare i dipendenti.
 ## Come aiuta Tymex
-Tymex è pensato per rendere la rilevazione il più leggera possibile: è la persona stessa a registrare le proprie ore, da smartphone o dal web, in pochi tap. Il calendario mostra subito quali giornate sono complete e un rapportino ricorrente si duplica con un tocco. Con i ruoli, chi ha il profilo base registra e consulta i propri rapportini, mentre la gestione del team spetta a manager e amministratori.
+Tymex nasce proprio per togliere fatica: è la persona stessa a registrare le proprie ore, dallo smartphone o dal web, in pochi tap. Il calendario mostra subito quali giornate sono complete e un rapportino ricorrente si duplica con un tocco. Chi ha il profilo base vede i propri rapportini; la gestione del team spetta a manager e amministratori.
 ## In sintesi
-La tecnologia è la parte più facile. La differenza la fanno la chiarezza degli obiettivi, la semplicità dello strumento e il modo in cui i dati vengono usati. Quando le persone capiscono perché registrano le ore e ne ricevono un beneficio, la rilevazione smette di essere un controllo e diventa uno strumento di lavoro condiviso."""),
+Il software è la parte facile. Il resto lo fanno tre cose: le parole con cui lo presenti, la velocità con cui si usa e il modo in cui userai i dati. Fai bene queste tre, e la rilevazione ore smette di essere un controllo. Diventa un modo per lavorare meglio, insieme."""),
 ]

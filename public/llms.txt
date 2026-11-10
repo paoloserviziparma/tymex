@@ -28,6 +28,7 @@
 
 ## Articoli del blog
 
+- [Quanto ti costa davvero un'ora di lavoro? Come calcolare il costo orario di un dipendente](https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/): Come si calcola il costo orario di un dipendente: retribuzione, contributi, costi indiretti e ore davvero lavorate, con un esempio numerico passo passo.
 - [Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)](https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/): Perché la rilevazione delle ore spaventa i dipendenti, cosa succede nella loro testa e quali parole usare per presentarla, così diventa uno strumento utile a tutti.
 - [Timesheet Excel: vantaggi, limiti e alternative per la gestione delle ore lavorate](https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/): Vantaggi e limiti dei timesheet Excel e perché sempre più aziende scelgono un software dedicato per rilevare le ore, controllare le commesse e migliorarne la redditività.
 - [Come calcolare la marginalità di una commessa: guida completa](https://www.tymex.it/blog/come-calcolare-la-marginalita-di-una-commessa/): Come si calcola la marginalità di una commessa, con formula ed esempio pratico: controllare costi e ore lavorate per migliorare la redditività dei progetti.
@@ -41,6 +42,7 @@
 
 ## English articles
 
+- [What does an hour of work really cost you? How to calculate an employee's hourly cost](https://www.tymex.it/en/blog/employee-hourly-cost-how-to-calculate/)
 - [Time tracking: what your employees really think (and which words to use)](https://www.tymex.it/en/blog/time-tracking-employee-psychology/)
 - [Excel timesheets: pros, cons and alternatives for tracking hours worked](https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/)
 - [How to calculate a job's profit margin: a complete guide](https://www.tymex.it/en/blog/how-to-calculate-job-profit-margin/)

@@ -127,6 +127,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/glossario-timesheet/"/>
   </url>
   <url>
+    <loc>https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/employee-hourly-cost-how-to-calculate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/"/>
+  </url>
+  <url>
     <loc>https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/</loc>
     <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/"/>
@@ -153,6 +160,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/blog/employee-hourly-cost-how-to-calculate/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/employee-hourly-cost-how-to-calculate/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/en/blog/time-tracking-employee-psychology/</loc>

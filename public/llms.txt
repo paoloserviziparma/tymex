@@ -28,6 +28,7 @@
 
 ## Articoli del blog
 
+- [«Lo compilo venerdì»: perché il timesheet a memoria ti costa ore](https://www.tymex.it/blog/compilare-timesheet-abitudini/): Perché compilare il timesheet a fine settimana porta a dati sbagliati e cinque abitudini semplici per registrare le ore ogni giorno, in pochi secondi.
 - [Quanto ti costa davvero un'ora di lavoro? Come calcolare il costo orario di un dipendente](https://www.tymex.it/blog/costo-orario-dipendente-come-calcolarlo/): Come si calcola il costo orario di un dipendente: retribuzione, contributi, costi indiretti e ore davvero lavorate, con un esempio numerico passo passo.
 - [Rilevazione ore: cosa pensano davvero i tuoi dipendenti (e quali parole usare)](https://www.tymex.it/blog/rilevazione-ore-risvolti-psicologici-dipendenti/): Perché la rilevazione delle ore spaventa i dipendenti, cosa succede nella loro testa e quali parole usare per presentarla, così diventa uno strumento utile a tutti.
 - [Timesheet Excel: vantaggi, limiti e alternative per la gestione delle ore lavorate](https://www.tymex.it/blog/timesheet-excel-vantaggi-limiti-alternative/): Vantaggi e limiti dei timesheet Excel e perché sempre più aziende scelgono un software dedicato per rilevare le ore, controllare le commesse e migliorarne la redditività.
@@ -42,6 +43,7 @@
 
 ## English articles
 
+- ["I'll do it on Friday": why filling in timesheets from memory costs you hours](https://www.tymex.it/en/blog/filling-in-timesheets-habits/)
 - [What does an hour of work really cost you? How to calculate an employee's hourly cost](https://www.tymex.it/en/blog/employee-hourly-cost-how-to-calculate/)
 - [Time tracking: what your employees really think (and which words to use)](https://www.tymex.it/en/blog/time-tracking-employee-psychology/)
 - [Excel timesheets: pros, cons and alternatives for tracking hours worked](https://www.tymex.it/en/blog/timesheet-excel-pros-cons-alternatives/)

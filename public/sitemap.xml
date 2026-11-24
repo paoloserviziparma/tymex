@@ -127,6 +127,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/glossario-timesheet/"/>
   </url>
   <url>
+    <loc>https://www.tymex.it/blog/rapportino-di-intervento-cosa-deve-contenere/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/rapportino-di-intervento-cosa-deve-contenere/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/service-report-what-it-should-include/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/rapportino-di-intervento-cosa-deve-contenere/"/>
+  </url>
+  <url>
     <loc>https://www.tymex.it/blog/compilare-timesheet-abitudini/</loc>
     <lastmod>2026-11-17</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/compilare-timesheet-abitudini/"/>
@@ -167,6 +174,13 @@
     <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.tymex.it/en/blog/service-report-what-it-should-include/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://www.tymex.it/blog/rapportino-di-intervento-cosa-deve-contenere/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.tymex.it/en/blog/service-report-what-it-should-include/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.tymex.it/blog/rapportino-di-intervento-cosa-deve-contenere/"/>
   </url>
   <url>
     <loc>https://www.tymex.it/en/blog/filling-in-timesheets-habits/</loc>
